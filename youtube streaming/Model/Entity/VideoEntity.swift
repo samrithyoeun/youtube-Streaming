@@ -12,4 +12,8 @@ struct VideoEntity{
     var channel: String
     var videoId: String
     var thumbnail: String
+    
+    func getVideoURL() -> URL? {
+        return URL(string: "https://youtu.be/\(videoId)")
+    }
 }

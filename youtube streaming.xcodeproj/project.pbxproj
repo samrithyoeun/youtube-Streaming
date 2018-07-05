@@ -16,12 +16,11 @@
 		535EF3D020EDC784003588E6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3CF20EDC784003588E6 /* APIRequest.swift */; };
 		535EF3D320EDCA20003588E6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D220EDCA20003588E6 /* Result.swift */; };
 		535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */; };
-		535EF3D820EDCC8F003588E6 /* DevConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3D620EDCC8E003588E6 /* DevConfig.xcconfig */; };
-		535EF3D920EDCC8F003588E6 /* ProdConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3D720EDCC8F003588E6 /* ProdConfig.xcconfig */; };
 		535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */; };
 		535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */; };
 		535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */; };
 		535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E320EE1275003588E6 /* VideoEntity.swift */; };
+		535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */; };
 		C6FD2CFD4BAF1096B3A8ECBC /* Pods_youtube_streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +44,9 @@
 		535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableVC.swift; sourceTree = "<group>"; };
 		535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		535EF3E320EE1275003588E6 /* VideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEntity.swift; sourceTree = "<group>"; };
+		535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "youtube streaming-Bridging-Header.h"; sourceTree = "<group>"; };
+		535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		535EF3E720EE23C6003588E6 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youtube streaming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +146,10 @@
 		535EF3D120EDCA0F003588E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				535EF3E720EE23C6003588E6 /* HMSegmentedControl.h */,
+				535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */,
 				535EF3D220EDCA20003588E6 /* Result.swift */,
+				535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				TargetAttributes = {
 					535EF3AC20EDC077003588E6 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -228,9 +234,7 @@
 			files = (
 				535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */,
 				535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */,
-				535EF3D820EDCC8F003588E6 /* DevConfig.xcconfig in Resources */,
 				535EF3B820EDC077003588E6 /* Main.storyboard in Resources */,
-				535EF3D920EDCC8F003588E6 /* ProdConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +295,7 @@
 				535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */,
 				535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */,
 				535EF3D320EDCA20003588E6 /* Result.swift in Sources */,
+				535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */,
 				535EF3B320EDC077003588E6 /* FirstViewController.swift in Sources */,
 				535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */,
 				535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */,
@@ -438,6 +443,7 @@
 			baseConfigurationReference = 81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LCN239U73A;
 				INFOPLIST_FILE = "youtube streaming/Supporting File/Info.plist";
@@ -447,6 +453,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.youtube-streaming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "youtube streaming/Common/youtube streaming-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -457,6 +465,7 @@
 			baseConfigurationReference = 1800C4A9708099C08F6F8EBB /* Pods-youtube streaming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LCN239U73A;
 				INFOPLIST_FILE = "youtube streaming/Supporting File/Info.plist";
@@ -466,6 +475,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.youtube-streaming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "youtube streaming/Common/youtube streaming-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
