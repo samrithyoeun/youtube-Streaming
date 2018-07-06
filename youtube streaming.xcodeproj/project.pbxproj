@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B020EDC077003588E6 /* AppDelegate.swift */; };
-		535EF3B320EDC077003588E6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B220EDC077003588E6 /* FirstViewController.swift */; };
+		535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */; };
 		535EF3B520EDC077003588E6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B420EDC077003588E6 /* SecondViewController.swift */; };
 		535EF3B820EDC077003588E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B620EDC077003588E6 /* Main.storyboard */; };
 		535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B920EDC078003588E6 /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 		1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_youtube_streaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535EF3AD20EDC077003588E6 /* youtube streaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "youtube streaming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		535EF3B020EDC077003588E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		535EF3B220EDC077003588E6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
 		535EF3B420EDC077003588E6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		535EF3B720EDC077003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		535EF3B920EDC078003588E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		535EF3C620EDC11E003588E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				535EF3B220EDC077003588E6 /* FirstViewController.swift */,
+				535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */,
 				535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */,
 				535EF3B420EDC077003588E6 /* SecondViewController.swift */,
 			);
@@ -251,12 +251,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -296,7 +298,7 @@
 				535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */,
 				535EF3D320EDCA20003588E6 /* Result.swift in Sources */,
 				535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */,
-				535EF3B320EDC077003588E6 /* FirstViewController.swift in Sources */,
+				535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */,
 				535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */,
 				535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */,
 			);

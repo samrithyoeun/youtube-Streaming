@@ -8,12 +8,13 @@
 
 import Foundation
 struct VideoEntity{
-    var title: String
-    var channel: String
-    var videoId: String
-    var thumbnail: String
+    var title = ""
+    var channel = ""
+    var videoId = ""
+    var thumbnail = ""
     
     func getVideoURL() -> URL? {
         return URL(string: "https://youtu.be/\(videoId)")
     }
+    
 }
