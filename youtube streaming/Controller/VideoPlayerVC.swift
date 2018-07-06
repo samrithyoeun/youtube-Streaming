@@ -10,18 +10,26 @@ import UIKit
 import YouTubePlayer
 
 class VideoPlayerVC: UIViewController {
+    
     @IBOutlet weak var videoPlayerView: YouTubePlayerView!
-    @IBOutlet weak var timelineSlider: UISlider!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var playingLabel: UILabel!
-    @IBOutlet weak var soundSlider: UISlider!
+    @IBOutlet weak var playButton: UIButton!
     
     var video = VideoEntity()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadVideo(video.videoId)
         
-        
+    }
+    
+    func loadVideo(_ videoId: String){
+        videoPlayerView.playerVars = [
+            "playsinline": "1",
+            "controls": "1",
+            "showinfo": "0"
+            ] as YouTubePlayerView.YouTubePlayerParameters
+        videoPlayerView.loadVideoID(videoId)
+        videoPlayerView.play()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +41,26 @@ class VideoPlayerVC: UIViewController {
         }
     }
     
+    @IBAction func playButtonTapped(_ sender: Any) {
+        if videoPlayerView.ready {
+            if videoPlayerView.playerState != YouTubePlayerState.Playing {
+                videoPlayerView.play()
+                playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            } else {
+                videoPlayerView.pause()
+                playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
+                let duration  = videoPlayerView.getDuration()
+                print("duration : \(duration)")
+            }
+        }
+    }
+   
+    @IBAction func nextButtonTapeed(_ sender: Any) {
+    }
     
+    @IBAction func previousButtonTapped(_ sender: Any) {
+    }
     
 }
+
 

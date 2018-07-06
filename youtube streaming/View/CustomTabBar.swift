@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@IBDesignable
+
 class CustomTabBar : UITabBar {
     @IBInspectable var height: CGFloat = 40
     
@@ -17,10 +17,6 @@ class CustomTabBar : UITabBar {
             sizeThatFits.height = height
         }
         backgroundColor = UIColor.black
-        
-        let tabBarItems = items! as [UITabBarItem]
-        tabBarItems[0].title = nil
-        tabBarItems[0].imageInsets = UIEdgeInsetsMake(6,0,-6,0)
         return sizeThatFits
     }
 }
