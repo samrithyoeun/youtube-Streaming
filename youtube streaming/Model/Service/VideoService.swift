@@ -33,11 +33,10 @@ class VideoService {
         var videos = [VideoEntity]()
         if let items = value["items"].array {
             for item in items {
-                let title = item["snippet"]["title"].string!
-                let channel = item["snippet"]["channelTitle"].string!
-                let videoId = item["id"]["videoId"].string!
-                let thumbnail = item["snippet"]["thumbnails"]["medium"]["url"].string!
-                videos.append(VideoEntity(title: title, channel: channel, id: videoId, thumbnail: thumbnail))
+                if let title = item["snippet"]["title"].string , let channel = item["snippet"]["channelTitle"].string , let videoId = item["id"]["videoId"].string , let thumbnail = item["snippet"]["thumbnails"]["medium"]["url"].string {
+                    videos.append(VideoEntity(title: title, channel: channel, id: videoId, thumbnail: thumbnail))
+                    
+                }
             }
         }
         return videos
@@ -63,11 +62,10 @@ class VideoService {
                 let videoInfoQualityMedium = videoInfo["medium"] as? [String: Any]
               
                 if let qualityMediumURL = videoInfoQualityMedium?["url"] as? String {
-                    print(qualityMediumURL)
+                    print(" video link : \(qualityMediumURL) \n")
                     callback(qualityMediumURL)
-                    
                 }
-    
+
             })
         }
     }

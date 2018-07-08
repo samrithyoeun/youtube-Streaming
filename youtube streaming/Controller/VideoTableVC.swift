@@ -34,8 +34,11 @@ class VideoTableVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let videoPlayerVC = segue.destination as? VideoPlayerVC{
-                videoPlayerVC.videos = videos
+        if let videoPlayerVC = segue.destination as? VideoPlayerVC, let cell = sender as? UITableViewCell{
+            if let index = tableView.indexPath(for: cell){
+                    videoPlayerVC.videos = videos
+                    videoPlayerVC.indexOfPlayingVideo = index.row
+                }
             }
     }
     

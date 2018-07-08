@@ -19,4 +19,5 @@ class CustomTabBar : UITabBar {
         backgroundColor = UIColor.black
         return sizeThatFits
     }
+    
 }

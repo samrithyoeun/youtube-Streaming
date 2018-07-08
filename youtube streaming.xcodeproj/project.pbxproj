@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B020EDC077003588E6 /* AppDelegate.swift */; };
 		535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */; };
-		535EF3B520EDC077003588E6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B420EDC077003588E6 /* SecondViewController.swift */; };
 		535EF3B820EDC077003588E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B620EDC077003588E6 /* Main.storyboard */; };
 		535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B920EDC078003588E6 /* Assets.xcassets */; };
 		535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3BB20EDC078003588E6 /* LaunchScreen.storyboard */; };
@@ -23,6 +22,7 @@
 		C6FD2CFD4BAF1096B3A8ECBC /* Pods_youtube_streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */; };
 		CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744020F074770032B73C /* YoutubeSourceParser.swift */; };
 		CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744920F0788A0032B73C /* VideoService.swift */; };
+		CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744E20F222A10032B73C /* CMTimeEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,6 @@
 		535EF3AD20EDC077003588E6 /* youtube streaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "youtube streaming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		535EF3B020EDC077003588E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
-		535EF3B420EDC077003588E6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		535EF3B720EDC077003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		535EF3B920EDC078003588E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		535EF3BC20EDC078003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youtube streaming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming.debug.xcconfig"; sourceTree = "<group>"; };
 		CD2D744020F074770032B73C /* YoutubeSourceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSourceParser.swift; sourceTree = "<group>"; };
 		CD2D744920F0788A0032B73C /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		CD2D744E20F222A10032B73C /* CMTimeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTimeEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,6 @@
 			children = (
 				535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */,
 				535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */,
-				535EF3B420EDC077003588E6 /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				535EF3D220EDCA20003588E6 /* Result.swift */,
+				CD2D744E20F222A10032B73C /* CMTimeEx.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
-				535EF3B520EDC077003588E6 /* SecondViewController.swift in Sources */,
+				CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */,
 				535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */,
 				535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */,
 				535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */,
