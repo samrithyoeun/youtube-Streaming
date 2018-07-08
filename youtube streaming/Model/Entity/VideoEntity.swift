@@ -15,13 +15,14 @@ class VideoEntity{
     var videoLink = ""
 
     init(title: String, channel: String, id: String, thumbnail: String, videoLink: String = ""){
-        self.title = title
-        self.channel = channel
-        self.thumbnail = thumbnail
+       
         self.id = id
         VideoService.getSourceURL(id: id) { (link) in
             self.videoLink = link
         }
+        self.title = title
+        self.channel = channel
+        self.thumbnail = thumbnail
     }
     
     init() {}

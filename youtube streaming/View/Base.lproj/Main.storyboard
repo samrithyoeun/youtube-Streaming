@@ -238,7 +238,9 @@
                         <viewLayoutGuide key="safeArea" id="uuT-s4-c2M"/>
                     </view>
                     <connections>
+                        <outlet property="channelLabel" destination="1Ir-mg-7Qb" id="CmZ-LT-3RT"/>
                         <outlet property="playButton" destination="khH-P0-Gy2" id="7uG-qO-AjL"/>
+                        <outlet property="titleLabel" destination="fGa-VO-vre" id="Fuq-Cd-SPg"/>
                         <outlet property="videoPlayerView" destination="Hcv-iV-bPU" id="XH4-kP-Ib8"/>
                     </connections>
                 </viewController>

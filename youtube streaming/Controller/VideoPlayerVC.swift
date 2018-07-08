@@ -5,7 +5,6 @@
 //  Created by PM Academy 3 on 7/5/18.
 //  Copyright © 2018 PM Academy 3. All rights reserved.
 //
-
 import UIKit
 import AVFoundation
 
@@ -14,6 +13,8 @@ class VideoPlayerVC: UIViewController {
     
     @IBOutlet weak var videoPlayerView: UIView!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var channelLabel: UILabel!
     
     var videos = [VideoEntity]()
     var player: AVPlayer!
@@ -44,30 +45,29 @@ class VideoPlayerVC: UIViewController {
         }
         videoIsPlaying = !videoIsPlaying
     }
-   
+    
     @IBAction func nextButtonTapeed(_ sender: Any) {
         if indexOfPlayingVideo == videos.count {
             indexOfPlayingVideo = 0
         } else {
             indexOfPlayingVideo += 1
         }
-        player.pause()
-        startPlay(video: videos[indexOfPlayingVideo])
+       playBackControll(indexOfPlayingVideo)
     }
     
     @IBAction func previousButtonTapped(_ sender: Any) {
-        if indexOfPlayingVideo < 0 {
-            indexOfPlayingVideo = videos.count
+        if indexOfPlayingVideo == 0 {
+            indexOfPlayingVideo = videos.count - 1
         } else {
             indexOfPlayingVideo -= 1
         }
-        player.pause()
-        videoIsPlaying = false
-        playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
-        startPlay(video: videos[indexOfPlayingVideo])
+       playBackControll(indexOfPlayingVideo)
     }
     
     func startPlay(video: VideoEntity){
+        titleLabel.text = video.title
+        channelLabel.text = video.channel
+        
         let url = URL(string: video.videoLink)
         player = AVPlayer(url: url!)
         playerLayer = AVPlayerLayer(player: player)
@@ -77,6 +77,14 @@ class VideoPlayerVC: UIViewController {
         videoIsPlaying = true
         playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
     }
+    
+    func playBackControll(_ index: Int){
+        player.pause()
+        videoIsPlaying = false
+        playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
+        startPlay(video: videos[index])
+        
+        titleLabel.text = videos[index].title
+        channelLabel.text = videos[index].channel
+    }
 }
-
-

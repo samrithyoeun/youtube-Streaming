@@ -16,6 +16,10 @@ class VideoTableVC: UIViewController {
     
     var videos = [VideoEntity]()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -27,7 +31,6 @@ class VideoTableVC: UIViewController {
             self.videos = videos
             self.tableView.reloadData()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
