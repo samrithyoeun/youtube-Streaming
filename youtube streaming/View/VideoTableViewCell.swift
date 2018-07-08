@@ -15,12 +15,12 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func bindData(with video: VideoEntity){
-        APIRequest.getImage(from: URL(string: video.thumbnail)!) { (image) in
-            self.videoImageView.image = image
+        VideoService.getImage(from: URL(string: video.thumbnail)!) { (image) in
+            self.videoImageView.image = image!
         }
         videoImageView.image = UIImage()
         channelLabel.text = video.channel
         titleLabel.text = video.title
-        durationLabel.text = video.videoId
+        
     }
 }

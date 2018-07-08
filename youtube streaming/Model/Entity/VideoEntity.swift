@@ -7,14 +7,23 @@
 //
 
 import Foundation
-struct VideoEntity{
+class VideoEntity{
     var title = ""
     var channel = ""
-    var videoId = ""
+    var id = ""
     var thumbnail = ""
-    
-    func getVideoURL() -> URL? {
-        return URL(string: "https://youtu.be/\(videoId)")
+    var videoLink = ""
+
+    init(title: String, channel: String, id: String, thumbnail: String, videoLink: String = ""){
+        self.title = title
+        self.channel = channel
+        self.thumbnail = thumbnail
+        self.id = id
+        VideoService.getSourceURL(id: id) { (link) in
+            self.videoLink = link
+        }
     }
     
+    init() {}
 }
+

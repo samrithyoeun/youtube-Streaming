@@ -15,19 +15,26 @@
         <scene sceneID="VDM-r2-cRW">
             <objects>
                 <viewController id="9bg-Jh-eHw" customClass="VideoTableVC" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M00-44-QG8" customClass="T">
+                    <view key="view" contentMode="scaleToFill" id="M00-44-QG8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujb-M3-gGF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="uu4-eR-0dR"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6Q-LA-bnQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="CY0-v2-OgH"/>
+                                    <constraint firstAttribute="height" constant="55" id="CY0-v2-OgH"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K4g-y5-QRi">
-                                <rect key="frame" x="0.0" y="60" width="320" height="395"/>
+                                <rect key="frame" x="0.0" y="57" width="320" height="398"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +105,7 @@
                                             <outlet property="durationLabel" destination="XdV-LH-0gB" id="SYa-f1-NtU"/>
                                             <outlet property="titleLabel" destination="1Kb-Uq-tbZ" id="gRb-Kc-x3i"/>
                                             <outlet property="videoImageView" destination="ymc-YU-rdX" id="IEF-5x-dKc"/>
+                                            <segue destination="7P3-r6-Qbx" kind="presentation" id="Stp-E2-G1N"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,12 +114,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C6Q-LA-bnQ" firstAttribute="trailing" secondItem="XBt-Ch-g3L" secondAttribute="trailing" id="0k4-6D-alT"/>
-                            <constraint firstItem="K4g-y5-QRi" firstAttribute="top" secondItem="C6Q-LA-bnQ" secondAttribute="bottom" id="9FS-w4-KE1"/>
                             <constraint firstItem="C6Q-LA-bnQ" firstAttribute="leading" secondItem="XBt-Ch-g3L" secondAttribute="leading" id="EHT-cC-iAs"/>
+                            <constraint firstItem="K4g-y5-QRi" firstAttribute="top" secondItem="ujb-M3-gGF" secondAttribute="bottom" id="JeR-Fn-gYs"/>
                             <constraint firstItem="K4g-y5-QRi" firstAttribute="trailing" secondItem="XBt-Ch-g3L" secondAttribute="trailing" id="Xc7-eU-oUL"/>
                             <constraint firstItem="K4g-y5-QRi" firstAttribute="leading" secondItem="XBt-Ch-g3L" secondAttribute="leading" id="g2x-Lg-9ps"/>
+                            <constraint firstAttribute="trailing" secondItem="ujb-M3-gGF" secondAttribute="trailing" id="hGW-0I-zip"/>
                             <constraint firstItem="C6Q-LA-bnQ" firstAttribute="top" secondItem="XBt-Ch-g3L" secondAttribute="top" id="jmt-Av-XVb"/>
                             <constraint firstAttribute="bottom" secondItem="K4g-y5-QRi" secondAttribute="bottom" id="kKD-Hh-dxa"/>
+                            <constraint firstItem="ujb-M3-gGF" firstAttribute="top" secondItem="XBt-Ch-g3L" secondAttribute="top" id="luI-8F-Cdl"/>
+                            <constraint firstItem="ujb-M3-gGF" firstAttribute="leading" secondItem="XBt-Ch-g3L" secondAttribute="leading" id="rmC-2B-TZ7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XBt-Ch-g3L"/>
                     </view>
@@ -133,7 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcv-iV-bPU" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcv-iV-bPU">
                                 <rect key="frame" x="0.0" y="60" width="320" height="180"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -289,7 +300,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA" customClass="CustomTabBar" customModule="youtube_streaming" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

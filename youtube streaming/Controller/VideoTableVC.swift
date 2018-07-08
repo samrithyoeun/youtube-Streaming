@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 class VideoTableVC: UIViewController {
     
@@ -19,36 +18,35 @@ class VideoTableVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        setUpUI()
-        APIRequest.get { (json, code, error) in
-            self.videos = APIRequest.map(json)
+        VideoService.get { (videos) in
+            self.videos = videos
             self.tableView.reloadData()
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let videoPlayerVC = segue.destination as? VideoPlayerVC, let cell = sender as? UITableViewCell {
-            if let indexPath = tableView.indexPath(for: cell) {
-                videoPlayerVC.video = videos[indexPath.row]
+        if let videoPlayerVC = segue.destination as? VideoPlayerVC{
+                videoPlayerVC.videos = videos
             }
-        }
     }
     
     func setUpUI(){
         let segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
-        segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60)
+        segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
         segmentControl?.addTarget(self, action: #selector(VideoTableVC.changedControl), for: UIControlEvents.valueChanged)
         segmentControl?.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segmentControl?.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segmentControl?.backgroundColor = UIColor.black
         segmentControl?.isVerticalDividerEnabled = true
-        segmentControl?.verticalDividerColor = UIColor.red
+        segmentControl?.verticalDividerColor = UIColor.orange
         segmentControl?.verticalDividerWidth = 1.0
-        segmentControl?.selectionIndicatorColor = UIColor.red
+        segmentControl?.selectionIndicatorColor = UIColor.orange
         
         segmentControl?.titleFormatter = { segmentedControl, title, index, selected in
             let attString = NSAttributedString(string: title ?? "", attributes: [kCTForegroundColorAttributeName as NSAttributedStringKey as NSAttributedStringKey: UIColor.white])
@@ -67,11 +65,11 @@ class VideoTableVC: UIViewController {
 extension VideoTableVC: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 82
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 82
     }
     
 }

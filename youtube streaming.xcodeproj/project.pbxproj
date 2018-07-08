@@ -13,7 +13,6 @@
 		535EF3B820EDC077003588E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B620EDC077003588E6 /* Main.storyboard */; };
 		535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B920EDC078003588E6 /* Assets.xcassets */; };
 		535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3BB20EDC078003588E6 /* LaunchScreen.storyboard */; };
-		535EF3D020EDC784003588E6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3CF20EDC784003588E6 /* APIRequest.swift */; };
 		535EF3D320EDCA20003588E6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D220EDCA20003588E6 /* Result.swift */; };
 		535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */; };
 		535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */; };
@@ -22,6 +21,8 @@
 		535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E320EE1275003588E6 /* VideoEntity.swift */; };
 		535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */; };
 		C6FD2CFD4BAF1096B3A8ECBC /* Pods_youtube_streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */; };
+		CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744020F074770032B73C /* YoutubeSourceParser.swift */; };
+		CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744920F0788A0032B73C /* VideoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,6 @@
 		535EF3B920EDC078003588E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		535EF3BC20EDC078003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		535EF3BE20EDC078003588E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		535EF3CF20EDC784003588E6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		535EF3D220EDCA20003588E6 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerEnvironment.swift; sourceTree = "<group>"; };
 		535EF3D620EDCC8E003588E6 /* DevConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DevConfig.xcconfig; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		535EF3E720EE23C6003588E6 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youtube streaming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2D744020F074770032B73C /* YoutubeSourceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSourceParser.swift; sourceTree = "<group>"; };
+		CD2D744920F0788A0032B73C /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		5355757220EF4D41005C62E7 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				CD2D743620F0746A0032B73C /* YoutubeSourceParser */,
 				5355757320EF50BC005C62E7 /* HMSegmentHeader */,
 			);
 			path = ThridParty;
@@ -148,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				535EF3CE20EDC769003588E6 /* Entity */,
-				535EF3CF20EDC784003588E6 /* APIRequest.swift */,
+				CD2D744B20F07E100032B73C /* Service */,
 				535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */,
 			);
 			path = Model;
@@ -185,6 +188,22 @@
 				1800C4A9708099C08F6F8EBB /* Pods-youtube streaming.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD2D743620F0746A0032B73C /* YoutubeSourceParser */ = {
+			isa = PBXGroup;
+			children = (
+				CD2D744020F074770032B73C /* YoutubeSourceParser.swift */,
+			);
+			path = YoutubeSourceParser;
+			sourceTree = "<group>";
+		};
+		CD2D744B20F07E100032B73C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CD2D744920F0788A0032B73C /* VideoService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,11 +325,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535EF3D020EDC784003588E6 /* APIRequest.swift in Sources */,
+				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
 				535EF3B520EDC077003588E6 /* SecondViewController.swift in Sources */,
 				535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */,
 				535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */,
 				535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */,
+				CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */,
 				535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */,
 				535EF3D320EDCA20003588E6 /* Result.swift in Sources */,
 				535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */,
