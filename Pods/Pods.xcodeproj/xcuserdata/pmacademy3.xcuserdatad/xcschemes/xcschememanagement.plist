@@ -42,6 +42,11 @@
 		<key>YouTubePlayer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>YoutubeSourceParserKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
 	</dict>

@@ -8,7 +8,6 @@
 import UIKit
 import AVFoundation
 
-
 class VideoPlayerVC: UIViewController {
     
     @IBOutlet weak var videoPlayerView: UIView!
@@ -45,6 +44,7 @@ class VideoPlayerVC: UIViewController {
     }
     
     @IBAction func timelineSliderDidDragged(_ sender: UISlider) {
+        currentTimeLabel.text = String(sender.value)
         player?.seek(to: CMTimeMake(Int64(sender.value*1000), 1000))
     }
     
@@ -80,6 +80,10 @@ class VideoPlayerVC: UIViewController {
         playBackControll(indexOfPlayingVideo)
     }
 
+    @IBAction func backButtonTapped(_ sender: Any) {
+        player?.pause()
+        self.dismiss(animated: true, completion: {})
+    }
 }
 
 extension VideoPlayerVC {

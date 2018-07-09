@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B020EDC077003588E6 /* AppDelegate.swift */; };
-		535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */; };
+		535EF3B320EDC077003588E6 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3B220EDC077003588E6 /* VideoPlayerViewController.swift */; };
 		535EF3B820EDC077003588E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B620EDC077003588E6 /* Main.storyboard */; };
 		535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3B920EDC078003588E6 /* Assets.xcassets */; };
 		535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535EF3BB20EDC078003588E6 /* LaunchScreen.storyboard */; };
 		535EF3D320EDCA20003588E6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D220EDCA20003588E6 /* Result.swift */; };
 		535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */; };
 		535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */; };
-		535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */; };
+		535EF3DF20EDF76B003588E6 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3DE20EDF76B003588E6 /* VideoTableViewController.swift */; };
 		535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */; };
 		535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E320EE1275003588E6 /* VideoEntity.swift */; };
 		535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */; };
@@ -32,7 +32,7 @@
 		1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_youtube_streaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		535EF3AD20EDC077003588E6 /* youtube streaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "youtube streaming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		535EF3B020EDC077003588E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
+		535EF3B220EDC077003588E6 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		535EF3B720EDC077003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		535EF3B920EDC078003588E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		535EF3BC20EDC078003588E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		535EF3D620EDCC8E003588E6 /* DevConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DevConfig.xcconfig; sourceTree = "<group>"; };
 		535EF3D720EDCC8F003588E6 /* ProdConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ProdConfig.xcconfig; sourceTree = "<group>"; };
 		535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableVC.swift; sourceTree = "<group>"; };
+		535EF3DE20EDF76B003588E6 /* VideoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
 		535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		535EF3E320EE1275003588E6 /* VideoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEntity.swift; sourceTree = "<group>"; };
 		535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "youtube streaming-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -68,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53499C5E20F2FD3D0029FE88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD2D744E20F222A10032B73C /* CMTimeEx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5355757220EF4D41005C62E7 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +152,8 @@
 		535EF3C620EDC11E003588E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				535EF3B220EDC077003588E6 /* VideoPlayerVC.swift */,
-				535EF3DE20EDF76B003588E6 /* VideoTableVC.swift */,
+				535EF3B220EDC077003588E6 /* VideoPlayerViewController.swift */,
+				535EF3DE20EDF76B003588E6 /* VideoTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,8 +180,8 @@
 		535EF3D120EDCA0F003588E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				53499C5E20F2FD3D0029FE88 /* Extensions */,
 				535EF3D220EDCA20003588E6 /* Result.swift */,
-				CD2D744E20F222A10032B73C /* CMTimeEx.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -344,8 +352,8 @@
 				535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */,
 				535EF3D320EDCA20003588E6 /* Result.swift in Sources */,
 				535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */,
-				535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */,
-				535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */,
+				535EF3B320EDC077003588E6 /* VideoPlayerViewController.swift in Sources */,
+				535EF3DF20EDF76B003588E6 /* VideoTableViewController.swift in Sources */,
 				CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */,
 				CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */,
 				535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */,
