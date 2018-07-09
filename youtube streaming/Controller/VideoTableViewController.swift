@@ -14,11 +14,16 @@ class VideoTableVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var videos = [VideoEntity]()
-    var delegate:ModalViewControllerDelegate?
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        let fileManager = FileManager.default
+        
+        // Get current directory path
+        
+        let path = fileManager.currentDirectoryPath
+        print("path: \(path) ")
         
         tableView.delegate = self
         tableView.dataSource = self

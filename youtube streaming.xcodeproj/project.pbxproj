@@ -19,6 +19,9 @@
 		535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */; };
 		535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E320EE1275003588E6 /* VideoEntity.swift */; };
 		535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */; };
+		53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53775E1520F35F6A00CA9080 /* OfflineVideoViewController.swift */; };
+		53775E1820F365E000CA9080 /* OfflineVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */; };
+		537D24A320F352BF00009852 /* PhotoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537D24A220F352BE00009852 /* PhotoServices.swift */; };
 		C6FD2CFD4BAF1096B3A8ECBC /* Pods_youtube_streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */; };
 		CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744020F074770032B73C /* YoutubeSourceParser.swift */; };
 		CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744920F0788A0032B73C /* VideoService.swift */; };
@@ -48,6 +51,12 @@
 		535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "youtube streaming-Bridging-Header.h"; sourceTree = "<group>"; };
 		535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		535EF3E720EE23C6003588E6 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		53775E1520F35F6A00CA9080 /* OfflineVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineVideoViewController.swift; sourceTree = "<group>"; };
+		53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineVideoTableViewCell.swift; sourceTree = "<group>"; };
+		537D249E20F3515600009852 /* uplift.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = uplift.mp4; sourceTree = "<group>"; };
+		537D249F20F3515700009852 /* upbeat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = upbeat.mp4; sourceTree = "<group>"; };
+		537D24A020F3515900009852 /* happy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happy.mp4; sourceTree = "<group>"; };
+		537D24A220F352BE00009852 /* PhotoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoServices.swift; sourceTree = "<group>"; };
 		81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youtube streaming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming.debug.xcconfig"; sourceTree = "<group>"; };
 		CD2D744020F074770032B73C /* YoutubeSourceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSourceParser.swift; sourceTree = "<group>"; };
 		CD2D744920F0788A0032B73C /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
@@ -79,6 +88,7 @@
 		5355757220EF4D41005C62E7 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				537D24A420F352C200009852 /* PhotoServices */,
 				CD2D743620F0746A0032B73C /* YoutubeSourceParser */,
 				5355757320EF50BC005C62E7 /* HMSegmentHeader */,
 			);
@@ -129,6 +139,7 @@
 		535EF3C420EDC0B2003588E6 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
+				537D24A120F3515E00009852 /* Videos */,
 				535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */,
 				535EF3D620EDCC8E003588E6 /* DevConfig.xcconfig */,
 				535EF3D720EDCC8F003588E6 /* ProdConfig.xcconfig */,
@@ -145,6 +156,7 @@
 				535EF3B620EDC077003588E6 /* Main.storyboard */,
 				535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */,
 				535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */,
+				53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				535EF3B220EDC077003588E6 /* VideoPlayerViewController.swift */,
+				53775E1520F35F6A00CA9080 /* OfflineVideoViewController.swift */,
 				535EF3DE20EDF76B003588E6 /* VideoTableViewController.swift */,
 			);
 			path = Controller;
@@ -184,6 +197,24 @@
 				535EF3D220EDCA20003588E6 /* Result.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		537D24A120F3515E00009852 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				537D249F20F3515700009852 /* upbeat.mp4 */,
+				537D249E20F3515600009852 /* uplift.mp4 */,
+				537D24A020F3515900009852 /* happy.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		537D24A420F352C200009852 /* PhotoServices */ = {
+			isa = PBXGroup;
+			children = (
+				537D24A220F352BE00009852 /* PhotoServices.swift */,
+			);
+			path = PhotoServices;
 			sourceTree = "<group>";
 		};
 		591A29C4F7E110D3E896E188 /* Frameworks */ = {
@@ -344,9 +375,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
+				53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */,
 				CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */,
 				535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */,
+				537D24A320F352BF00009852 /* PhotoServices.swift in Sources */,
 				535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */,
+				53775E1820F365E000CA9080 /* OfflineVideoTableViewCell.swift in Sources */,
 				535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */,
 				CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */,
 				535EF3DD20EDD8FC003588E6 /* CustomTabBar.swift in Sources */,

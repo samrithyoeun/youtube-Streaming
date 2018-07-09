@@ -17,8 +17,8 @@ class VideoTableViewCell: UITableViewCell {
     func bindData(with video: VideoEntity){
         VideoService.getImage(from: URL(string: video.thumbnail)!) { (image) in
             self.videoImageView.image = image!
+            
         }
-        videoImageView.image = UIImage()
         channelLabel.text = video.channel
         titleLabel.text = video.title
         

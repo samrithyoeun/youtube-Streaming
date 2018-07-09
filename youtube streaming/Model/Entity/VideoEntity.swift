@@ -14,6 +14,7 @@ class VideoEntity {
     var id = ""
     var thumbnail = ""
     var videoLink = ""
+    
 
     init(title: String, channel: String, id: String, thumbnail: String, videoLink: String = ""){
        
@@ -25,5 +26,14 @@ class VideoEntity {
     }
     
     init() {}
+    
+    static func getOfflineVideo() -> [VideoEntity] {
+        var videos = [VideoEntity]()
+        videos.append(VideoEntity(title: "Upbeat music", channel: "localfile", id: "", thumbnail: "", videoLink: "/Users/pmacademy3/Documents/xiong/youtube streaming/youtube streaming/Supporting File/Videos/upbeat.mp4"))
+        videos.append(VideoEntity(title: "UpLift music", channel: "localfile", id: "", thumbnail: "", videoLink: "/Users/pmacademy3/Documents/xiong/youtube streaming/youtube streaming/Supporting File/Videos/uplift.mp4"))
+        videos.append(VideoEntity(title: "Hppy Upbeat music", channel: "localfile", id: "", thumbnail: "", videoLink: "/Users/pmacademy3/Documents/xiong/youtube streaming/youtube streaming/Supporting File/Videos/happy.mp4"))
+        return videos
+    }
+    
 }
 
