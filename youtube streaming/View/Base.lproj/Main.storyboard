@@ -40,7 +40,7 @@
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="video tableview cell" rowHeight="81" id="HzH-7A-qmN" customClass="VideoTableViewCell" customModule="youtube_streaming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="video tableview cell" rowHeight="81" id="HzH-7A-qmN" customClass="VideoTableViewCell" customModule="youtube_streaming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HzH-7A-qmN" id="wXc-oq-5Y6">
@@ -129,11 +129,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="VIDEO" id="8ke-Qu-heP">
                         <barButtonItem key="backBarButtonItem" title=" " id="QFo-aG-MyZ"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="MkT-K5-m0P">
-                            <connections>
-                                <action selector="popBackToPlayer:" destination="9bg-Jh-eHw" id="Ztp-kk-Lf9"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentView" destination="C6Q-LA-bnQ" id="2eD-Sp-cND"/>

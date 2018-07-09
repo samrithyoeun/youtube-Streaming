@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioIndicatorBars
 
 class VideoTableViewController: UIViewController {
     
@@ -16,16 +17,12 @@ class VideoTableViewController: UIViewController {
     var videos = [VideoEntity]()
     var videoPlayerViewController: VideoPlayerViewController?
     var firstTimePresentPlayer = true
+    
+    let indicator: AudioIndicatorBarsView = AudioIndicatorBarsView(CGRect(x: 0, y: 0, width: 30, height: 30),6,5,.orange)
   
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        let fileManager = FileManager.default
-        
-        // Get current directory path
-        
-        let path = fileManager.currentDirectoryPath
-        print("path: \(path) ")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,7 +32,14 @@ class VideoTableViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if firstTimePresentPlayer == false {
+            if videoPlayerViewController?.videoIsPlaying == false {
+                indicator.stop()
+            }
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let videoPlayerVC = segue.destination as? VideoPlayerViewController, let cell = sender as? UITableViewCell{
             if let index = tableView.indexPath(for: cell){
@@ -46,6 +50,7 @@ class VideoTableViewController: UIViewController {
                     firstTimePresentPlayer = false
                     self.videoPlayerViewController = videoPlayerVC
                 }
+                indicator.start()
             }
         }
     }
@@ -69,13 +74,20 @@ class VideoTableViewController: UIViewController {
         }
         self.segmentView.addSubview(segmentControl!)
         
+        let mview = UIView()
+        mview.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        mview.addSubview(indicator)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mview)
+        navigationItem.rightBarButtonItem?.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(popBackToPlayer(_:))))
     }
     
     @objc func changedControl(){
         
     }
-    @IBAction func popBackToPlayer(_ sender: Any) {
+    
+    @objc func popBackToPlayer(_ button:UIBarButtonItem) {
         self.present(videoPlayerViewController!, animated: true, completion: nil)
+        print("hell")
     }
 }
 
