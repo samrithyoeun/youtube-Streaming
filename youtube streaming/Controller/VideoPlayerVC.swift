@@ -28,15 +28,9 @@ class VideoPlayerVC: UIViewController {
     var playerItem: AVPlayerItem?
     var url: URL?
     var asset: AVAsset?
-    
-    let requiredAssetKeys = [
-        "playable",
-        "hasProtectedContent"
-    ]
-    
+    let requiredAssetKeys = ["playable", "hasProtectedContent"]
     private var playerItemContext = 0
     
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +59,7 @@ class VideoPlayerVC: UIViewController {
             playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         }
         videoIsPlaying = !videoIsPlaying
-
+        
     }
     
     @IBAction func nextButtonTapeed(_ sender: Any) {
@@ -74,7 +68,7 @@ class VideoPlayerVC: UIViewController {
         } else {
             indexOfPlayingVideo += 1
         }
-       playBackControll(indexOfPlayingVideo)
+        playBackControll(indexOfPlayingVideo)
     }
     
     @IBAction func previousButtonTapped(_ sender: Any) {
@@ -83,9 +77,9 @@ class VideoPlayerVC: UIViewController {
         } else {
             indexOfPlayingVideo -= 1
         }
-       playBackControll(indexOfPlayingVideo)
+        playBackControll(indexOfPlayingVideo)
     }
-    
+
 }
 
 extension VideoPlayerVC {
@@ -183,5 +177,7 @@ extension VideoPlayerVC {
     }
 }
 
-
+protocol ModalViewControllerDelegate:class {
+    func dismissed()
+}
 

@@ -23,6 +23,8 @@
 		CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744020F074770032B73C /* YoutubeSourceParser.swift */; };
 		CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744920F0788A0032B73C /* VideoService.swift */; };
 		CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744E20F222A10032B73C /* CMTimeEx.swift */; };
+		CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745120F281DF0032B73C /* APIHeader.swift */; };
+		CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745420F281DF0032B73C /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		CD2D744020F074770032B73C /* YoutubeSourceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSourceParser.swift; sourceTree = "<group>"; };
 		CD2D744920F0788A0032B73C /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
 		CD2D744E20F222A10032B73C /* CMTimeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTimeEx.swift; sourceTree = "<group>"; };
+		CD2D745120F281DF0032B73C /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
+		CD2D745420F281DF0032B73C /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 		535EF3C920EDC140003588E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CD2D745020F281DF0032B73C /* API */,
 				535EF3CE20EDC769003588E6 /* Entity */,
 				CD2D744B20F07E100032B73C /* Service */,
 				535EF3D420EDCC70003588E6 /* ServerEnvironment.swift */,
@@ -204,6 +209,15 @@
 				CD2D744920F0788A0032B73C /* VideoService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		CD2D745020F281DF0032B73C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CD2D745120F281DF0032B73C /* APIHeader.swift */,
+				CD2D745420F281DF0032B73C /* APIRequest.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,15 +299,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
-				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -336,6 +346,8 @@
 				535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */,
 				535EF3B320EDC077003588E6 /* VideoPlayerVC.swift in Sources */,
 				535EF3DF20EDF76B003588E6 /* VideoTableVC.swift in Sources */,
+				CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */,
+				CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */,
 				535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

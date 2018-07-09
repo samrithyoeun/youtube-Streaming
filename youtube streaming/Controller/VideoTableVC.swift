@@ -10,16 +10,12 @@ import UIKit
 
 class VideoTableVC: UIViewController {
     
-   
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var videos = [VideoEntity]()
+    var delegate:ModalViewControllerDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -36,10 +32,10 @@ class VideoTableVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let videoPlayerVC = segue.destination as? VideoPlayerVC, let cell = sender as? UITableViewCell{
             if let index = tableView.indexPath(for: cell){
-                    videoPlayerVC.videos = videos
-                    videoPlayerVC.indexOfPlayingVideo = index.row
-                }
+                videoPlayerVC.videos = videos
+                videoPlayerVC.indexOfPlayingVideo = index.row
             }
+        }
     }
     
     func setUpUI(){
@@ -62,7 +58,7 @@ class VideoTableVC: UIViewController {
         self.segmentView.addSubview(segmentControl!)
         
     }
-   
+    
     @objc func changedControl(){
         
     }

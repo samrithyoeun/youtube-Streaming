@@ -11,12 +11,14 @@ import Alamofire
 import SwiftyJSON
 
 class VideoService {
+    static let youtube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Khmer%20Song&key=AIzaSyAdyVbGpQ_4yKXRFpYfYjyH1Lhu95QD9iw&maxResults=20"
+    
     typealias ResponsedVideo = ((_ videos: [VideoEntity] ) -> ())
     typealias ResponsedImage = ((_ image: UIImage? ) -> ())
     typealias ResponsedString = ((_ stirng: String) -> ())
     
     static func get(callback: @escaping ResponsedVideo) {
-        let url = ServerEnvironment.youtube
+        let url = youtube
         Alamofire.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):

@@ -11,10 +11,10 @@ struct ServerEnvironment {
     #if DEV_ENVIRONMENT
     static let localIp = "http://192.168.168.168:8080"
     static let host = "http://192.168.168.168:8080"
-    static let youtube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Khmer%20Song&key=AIzaSyAdyVbGpQ_4yKXRFpYfYjyH1Lhu95QD9iw&maxResults=20"
+    
     #else
     static let localIp = "http://pathmazing.com"
     static let host = "http://pathmazing.com"
-    static let youtube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Khmer%20Song&key=AIzaSyAdyVbGpQ_4yKXRFpYfYjyH1Lhu95QD9iw&maxResults=20"
+    
     #endif
 }

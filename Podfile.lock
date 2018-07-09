@@ -1,28 +1,20 @@
 PODS:
   - Alamofire (4.7.2)
   - SwiftyJSON (4.1.0)
-  - XLPagerTabStrip (8.0.1)
-  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.7.2)
   - SwiftyJSON (= 4.1.0)
-  - XLPagerTabStrip (= 8.0.1)
-  - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - SwiftyJSON
-    - XLPagerTabStrip
-    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
-  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: e9e1af4a13fe7cab088e40ab655406ab77b9a2e7
+PODFILE CHECKSUM: a4b66ea1adea196e5cef6e6f450f1d23c155fd44
 
 COCOAPODS: 1.5.3
