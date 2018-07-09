@@ -8,12 +8,14 @@
 
 import UIKit
 
-class VideoTableVC: UIViewController {
+class VideoTableViewController: UIViewController {
     
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var videos = [VideoEntity]()
+    var videoPlayerViewController: VideoPlayerViewController?
+    var firstTimePresentPlayer = true
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,15 @@ class VideoTableVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let videoPlayerVC = segue.destination as? VideoPlayerVC, let cell = sender as? UITableViewCell{
+        if let videoPlayerVC = segue.destination as? VideoPlayerViewController, let cell = sender as? UITableViewCell{
             if let index = tableView.indexPath(for: cell){
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
+                self.videoPlayerViewController = videoPlayerVC
+                if firstTimePresentPlayer == true {
+                    firstTimePresentPlayer = false
+                    self.videoPlayerViewController = videoPlayerVC
+                }
             }
         }
     }
@@ -46,7 +53,7 @@ class VideoTableVC: UIViewController {
     func setUpUI(){
         let segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
         segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
-        segmentControl?.addTarget(self, action: #selector(VideoTableVC.changedControl), for: UIControlEvents.valueChanged)
+        segmentControl?.addTarget(self, action: #selector(VideoTableViewController.changedControl), for: UIControlEvents.valueChanged)
         segmentControl?.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segmentControl?.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segmentControl?.backgroundColor = UIColor.black
@@ -67,9 +74,12 @@ class VideoTableVC: UIViewController {
     @objc func changedControl(){
         
     }
+    @IBAction func popBackToPlayer(_ sender: Any) {
+        self.present(videoPlayerViewController!, animated: true, completion: nil)
+    }
 }
 
-extension VideoTableVC: UITableViewDelegate{
+extension VideoTableViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
@@ -81,7 +91,7 @@ extension VideoTableVC: UITableViewDelegate{
     
 }
 
-extension VideoTableVC: UITableViewDataSource {
+extension VideoTableViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

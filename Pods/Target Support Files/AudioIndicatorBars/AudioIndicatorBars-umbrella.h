@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double YoutubeSourceParserKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char YoutubeSourceParserKitVersionString[];
+FOUNDATION_EXPORT double AudioIndicatorBarsVersionNumber;
+FOUNDATION_EXPORT const unsigned char AudioIndicatorBarsVersionString[];
 

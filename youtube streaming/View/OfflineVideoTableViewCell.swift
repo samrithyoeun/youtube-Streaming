@@ -14,6 +14,7 @@ class OfflineVideoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func bindWith(_ video: VideoEntity){
-        print(video.videoLink)
+        titleLabel.text = video.title
+        
     }
 }

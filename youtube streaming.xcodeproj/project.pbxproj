@@ -28,6 +28,7 @@
 		CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744E20F222A10032B73C /* CMTimeEx.swift */; };
 		CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745120F281DF0032B73C /* APIHeader.swift */; };
 		CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745420F281DF0032B73C /* APIRequest.swift */; };
+		CD627F4F20F3AF34003D4C96 /* UIViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		CD2D744E20F222A10032B73C /* CMTimeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTimeEx.swift; sourceTree = "<group>"; };
 		CD2D745120F281DF0032B73C /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		CD2D745420F281DF0032B73C /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				CD2D744E20F222A10032B73C /* CMTimeEx.swift */,
+				CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,11 +340,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AudioIndicatorBars/AudioIndicatorBars.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioIndicatorBars.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +382,7 @@
 				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
 				53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */,
 				CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */,
+				CD627F4F20F3AF34003D4C96 /* UIViewControllerEx.swift in Sources */,
 				535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */,
 				537D24A320F352BF00009852 /* PhotoServices.swift in Sources */,
 				535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */,

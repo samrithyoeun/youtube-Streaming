@@ -15,7 +15,7 @@
         <!--VIDEO-->
         <scene sceneID="VDM-r2-cRW">
             <objects>
-                <viewController id="9bg-Jh-eHw" customClass="VideoTableVC" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9bg-Jh-eHw" customClass="VideoTableViewController" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M00-44-QG8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,6 +129,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="VIDEO" id="8ke-Qu-heP">
                         <barButtonItem key="backBarButtonItem" title=" " id="QFo-aG-MyZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="MkT-K5-m0P">
+                            <connections>
+                                <action selector="popBackToPlayer:" destination="9bg-Jh-eHw" id="Ztp-kk-Lf9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentView" destination="C6Q-LA-bnQ" id="2eD-Sp-cND"/>
@@ -142,7 +147,7 @@
         <!--Now Playing-->
         <scene sceneID="6jJ-cN-boN">
             <objects>
-                <viewController title="Now Playing" hidesBottomBarWhenPushed="YES" id="7P3-r6-Qbx" customClass="VideoPlayerVC" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Now Playing" hidesBottomBarWhenPushed="YES" id="7P3-r6-Qbx" customClass="VideoPlayerViewController" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0xf-Om-aAb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

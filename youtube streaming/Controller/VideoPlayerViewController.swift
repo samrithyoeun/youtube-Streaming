@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class VideoPlayerVC: UIViewController {
+class VideoPlayerViewController: UIViewController {
     
     @IBOutlet weak var videoPlayerView: UIView!
     @IBOutlet weak var playButton: UIButton!
@@ -24,34 +24,40 @@ class VideoPlayerVC: UIViewController {
     var videoIsPlaying = false
     var indexOfPlayingVideo = 0
     var playerItem: AVPlayerItem?
+    static var firstTimeSetup =  true
     var url: URL?
     private var playerItemContext = 0
-    let playerViewController = AVPlayerViewController()
+    static let playerViewController = AVPlayerViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if VideoPlayerViewController.firstTimeSetup == true {
+        setUpUI()
+            VideoPlayerViewController.firstTimeSetup = false
+            prepareToPlay(videos[indexOfPlayingVideo])
+        } else {
+            playBackControll(indexOfPlayingVideo)
+        }
         
-       
-        prepareToPlay(videos[indexOfPlayingVideo])
+        
     }
     
     @IBAction func timelineSliderDidDragged(_ sender: UISlider) {
-      //  currentTimeLabel.text = player.currentTime().text
-      //  player?.seek(to: CMTimeMake(Int64(sender.value*1000), 1000))
+        VideoPlayerViewController.playerViewController.player?.seek(to: CMTimeMake(Int64(sender.value*1000), 1000))
     }
     
     @IBAction func volumnSliderValueChanged(_ sender: UISlider) {
-        playerViewController.player?.volume = sender.value
+        VideoPlayerViewController.playerViewController.player?.volume = sender.value
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
         if videoIsPlaying == true {
             print("video will be pause")
-            playerViewController.player?.pause()
+            VideoPlayerViewController.playerViewController.player?.pause()
             playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
         } else {
             print("video will be play")
-            playerViewController.player?.play()
+            VideoPlayerViewController.playerViewController.player?.play()
             playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         }
         videoIsPlaying = !videoIsPlaying
@@ -75,57 +81,61 @@ class VideoPlayerVC: UIViewController {
         }
         playBackControll(indexOfPlayingVideo)
     }
-
+    
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: {})
+        performSegueToReturnBack()
     }
-   
-    private func setUpUI(){
-         timelineSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
+    
+    func setUpUI(){
+        timelineSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
+        volumnSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
+        self.present(VideoPlayerViewController.playerViewController, animated: true, completion: nil)
         
     }
 }
 
-extension VideoPlayerVC {
-    // Mark: - AVPlayer Method
-    private func addTimeObserver() {
-        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        let mainQueue = DispatchQueue.main
-        _ = player.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
-            guard let currentItem = self?.player.currentItem else {return}
-            self?.timelineSlider.maximumValue = Float(currentItem.duration.seconds)
-            self?.timelineSlider.minimumValue = 0
-            self?.timelineSlider.value = Float(currentItem.currentTime().seconds)
-            self?.currentTimeLabel.text = self?.player.currentItem?.currentTime().text
-        })
-    }
+extension VideoPlayerViewController {
     
-    private func playBackControll(_ index: Int){
-        playerViewController.player?.pause()
+    func playBackControll(_ index: Int){
+        VideoPlayerViewController.playerViewController.player?.pause()
         videoIsPlaying = false
         playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
         prepareToPlay(videos[index])
     }
-
-    private func prepareToPlay(_ video: VideoEntity){
-       
+    
+    func prepareToPlay(_ video: VideoEntity){
+        
         titleLabel.text = video.title
         channelLabel.text = video.channel
         currentTimeLabel.text = "NaN"
         durationLabel.text = "NaN"
         playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         videoIsPlaying = true
-        playerViewController.showsPlaybackControls = false
-        self.addChildViewController(playerViewController)
-        self.videoPlayerView.addSubview((playerViewController.view)!)
-        playerViewController.didMove(toParentViewController: self)
-        playerViewController.view.frame = self.videoPlayerView.bounds
+        VideoPlayerViewController.playerViewController.showsPlaybackControls = false
+        self.addChildViewController(VideoPlayerViewController.playerViewController)
+        self.videoPlayerView.addSubview((VideoPlayerViewController.playerViewController.view)!)
+        VideoPlayerViewController.playerViewController.didMove(toParentViewController: self)
+        VideoPlayerViewController.playerViewController.view.frame = self.videoPlayerView.bounds
         
         VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (link) in
             let streamURL = URL(string: link)
-            self.playerViewController.player = AVPlayer(url: streamURL!)
-            self.playerViewController.player?.play()
+            
+            VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
+            VideoPlayerViewController.playerViewController.player?.play()
+            
+            let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            VideoPlayerViewController.playerViewController.player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { time in
+                guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem else {return}
+                
+                self.timelineSlider.maximumValue = Float(currentItem.duration.seconds)
+                self.timelineSlider.minimumValue = 0
+                self.timelineSlider.value = Float(currentItem.currentTime().seconds)
+                self.currentTimeLabel.text = currentItem.currentTime().text
+                self.durationLabel.text = currentItem.duration.text
+                
+            })
+            
+        }
     }
-}
-
+    
 }
