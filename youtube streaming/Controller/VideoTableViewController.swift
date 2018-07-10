@@ -27,10 +27,19 @@ class VideoTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        VideoService.get { (videos) in
-            self.videos = videos
-            self.tableView.reloadData()
+        VideoService.get { (result) in
+            switch result {
+            case .success(let videoEntities):
+                for item in videoEntities {
+                    self.videos.append(item)
+                }
+                self.tableView.reloadData()
+                break
+            case .failure(let errorMessage):
+                print(errorMessage)
+            }
         }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,6 +54,7 @@ class VideoTableViewController: UIViewController {
             if let index = tableView.indexPath(for: cell){
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
+                videoPlayerVC.offlinePlaying = false
                 self.videoPlayerViewController = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
@@ -87,7 +97,6 @@ class VideoTableViewController: UIViewController {
     
     @objc func popBackToPlayer(_ button:UIBarButtonItem) {
         self.present(videoPlayerViewController!, animated: true, completion: nil)
-        print("hell")
     }
 }
 

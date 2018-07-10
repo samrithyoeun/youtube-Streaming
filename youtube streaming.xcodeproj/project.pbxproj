@@ -29,6 +29,9 @@
 		CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745120F281DF0032B73C /* APIHeader.swift */; };
 		CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745420F281DF0032B73C /* APIRequest.swift */; };
 		CD627F4F20F3AF34003D4C96 /* UIViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */; };
+		CD627F5020F426F6003D4C96 /* upbeat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249F20F3515700009852 /* upbeat.mp4 */; };
+		CD627F5120F426F6003D4C96 /* uplift.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249E20F3515600009852 /* uplift.mp4 */; };
+		CD627F5220F426F6003D4C96 /* happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D24A020F3515900009852 /* happy.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -323,6 +326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD627F5020F426F6003D4C96 /* upbeat.mp4 in Resources */,
+				CD627F5120F426F6003D4C96 /* uplift.mp4 in Resources */,
+				CD627F5220F426F6003D4C96 /* happy.mp4 in Resources */,
 				535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */,
 				535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */,
 				535EF3B820EDC077003588E6 /* Main.storyboard in Resources */,

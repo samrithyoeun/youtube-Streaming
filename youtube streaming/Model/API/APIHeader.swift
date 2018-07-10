@@ -22,5 +22,9 @@ struct APIHeader {
     static func getAuthorizationVideo() -> [String: String] {
         return [:]
     }
-
+    
+    static func getAuthorizationImage() -> [String: String] {
+        return [:]
+    }
+    
 }

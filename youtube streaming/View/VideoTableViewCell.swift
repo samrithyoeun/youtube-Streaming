@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoImageView: UIImageView!
@@ -15,9 +16,16 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func bindData(with video: VideoEntity){
-        VideoService.getImage(from: URL(string: video.thumbnail)!) { (image) in
-            self.videoImageView.image = image!
-            
+        
+        Alamofire.request(video.thumbnail)
+            .validate()
+            .responseData { (response) in
+                if response.error == nil {
+                    if let data = response.data{
+                        let image = UIImage(data:data)
+                        self.videoImageView.image = image!
+                    }
+                }
         }
         channelLabel.text = video.channel
         titleLabel.text = video.title

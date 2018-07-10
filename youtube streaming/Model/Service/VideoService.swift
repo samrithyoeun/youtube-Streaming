@@ -11,23 +11,23 @@ import Alamofire
 import SwiftyJSON
 
 class VideoService {
-    static let youtube = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Khmer%20Song&key=AIzaSyAdyVbGpQ_4yKXRFpYfYjyH1Lhu95QD9iw&maxResults=20"
     
-    typealias ResponsedVideo = ((_ videos: [VideoEntity] ) -> ())
-    typealias ResponsedImage = ((_ image: UIImage? ) -> ())
+    typealias ResponsedVideo = ((_ videos: Result<[VideoEntity]> ) -> ())
+    typealias ResponsedImage = ((_ image: Result<UIImage?> ) -> ())
     typealias ResponsedString = ((_ stirng: String) -> ())
     
     static func get(callback: @escaping ResponsedVideo) {
-        let url = youtube
-        Alamofire.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let videoList = map(json)
-                callback(videoList)
-            case .failure(let error):
-                print(error)
+        let header = APIHeader.getAuthorizationVideo()
+        APIRequest.get(endPoint: "", headers: header) { (response: JSON, responseCode: Int?, error: Error?) in
+            
+            guard error == nil else {
+                print(error?.localizedDescription ?? "")
+                callback(Result.failure("Cannot get videos from API"))
+                return
             }
+            
+            callback(Result.success(self.map(response)))
+            
         }
     }
     
@@ -44,18 +44,6 @@ class VideoService {
         return videos
     }
     
-    static func getImage(from imageURL: URL, callback: @escaping ResponsedImage ){
-        Alamofire.request(imageURL)
-            .validate()
-            .responseData { (response) in
-                if response.error == nil {
-                    if let data = response.data{
-                        let image = UIImage(data:data)
-                        callback(image)
-                    }
-                }
-        }
-    }
     
     static func getSourceURL(id: String, callback: @escaping ResponsedString){
         if let url = URL(string: "https://www.youtube.com/watch?v="+id) {

@@ -22,6 +22,7 @@ class VideoPlayerViewController: UIViewController {
     var videos = [VideoEntity]()
     var player = AVPlayer()
     var videoIsPlaying = false
+    var offlinePlaying = false
     var indexOfPlayingVideo = 0
     var playerItem: AVPlayerItem?
     static var firstTimeSetup =  true
@@ -32,9 +33,9 @@ class VideoPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if VideoPlayerViewController.firstTimeSetup == true {
-        setUpUI()
+            setUpUI()
             VideoPlayerViewController.firstTimeSetup = false
-            prepareToPlay(videos[indexOfPlayingVideo])
+            playBackControll(indexOfPlayingVideo)
         } else {
             playBackControll(indexOfPlayingVideo)
         }
@@ -117,25 +118,37 @@ extension VideoPlayerViewController {
         VideoPlayerViewController.playerViewController.didMove(toParentViewController: self)
         VideoPlayerViewController.playerViewController.view.frame = self.videoPlayerView.bounds
         
-        VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (link) in
-            let streamURL = URL(string: link)
-            
-            VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
+        if offlinePlaying == true {
+            guard let path = Bundle.main.path(forResource: video.videoLink, ofType:"mp4") else {
+                debugPrint("debug: file not found")
+                return
+            }
+            print("playing offline video")
+            VideoPlayerViewController.playerViewController.player = AVPlayer(url: URL(fileURLWithPath: path))
             VideoPlayerViewController.playerViewController.player?.play()
-            
-            let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-            VideoPlayerViewController.playerViewController.player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { time in
-                guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem else {return}
-                
-                self.timelineSlider.maximumValue = Float(currentItem.duration.seconds)
-                self.timelineSlider.minimumValue = 0
-                self.timelineSlider.value = Float(currentItem.currentTime().seconds)
-                self.currentTimeLabel.text = currentItem.currentTime().text
-                self.durationLabel.text = currentItem.duration.text
-                
-            })
-            
+
+        } else {
+            VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (link) in
+                let streamURL = URL(string: link)
+                VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
+                VideoPlayerViewController.playerViewController.player?.play()
+                self.setupTimeLine()
+            }
         }
     }
     
+    func setupTimeLine() {
+        print("debug: set up timeline")
+        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        VideoPlayerViewController.playerViewController.player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { time in
+            guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem else {return}
+            
+            self.timelineSlider.maximumValue = Float(currentItem.duration.seconds)
+            self.timelineSlider.minimumValue = 0
+            self.timelineSlider.value = Float(currentItem.currentTime().seconds)
+            self.currentTimeLabel.text = currentItem.currentTime().text
+            self.durationLabel.text = currentItem.duration.text
+            
+        })
+    }
 }

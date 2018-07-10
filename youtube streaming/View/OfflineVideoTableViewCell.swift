@@ -15,6 +15,6 @@ class OfflineVideoTableViewCell: UITableViewCell {
     
     func bindWith(_ video: VideoEntity){
         titleLabel.text = video.title
-        
+        thumbnailImageView.image = UIImage(named: video.thumbnail)
     }
 }
