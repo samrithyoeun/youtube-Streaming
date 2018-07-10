@@ -126,7 +126,7 @@ extension VideoPlayerViewController {
             print("playing offline video")
             VideoPlayerViewController.playerViewController.player = AVPlayer(url: URL(fileURLWithPath: path))
             VideoPlayerViewController.playerViewController.player?.play()
-
+            setupTimeLine()
         } else {
             VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (link) in
                 let streamURL = URL(string: link)
@@ -134,17 +134,26 @@ extension VideoPlayerViewController {
                 VideoPlayerViewController.playerViewController.player?.play()
                 self.setupTimeLine()
             }
+            
         }
     }
     
     func setupTimeLine() {
         print("debug: set up timeline")
+        guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem
+            else {
+                print("currentItem is nil in setupTimeLine")
+                return
+            }
+        
+        self.timelineSlider.maximumValue = Float(currentItem.asset.duration.seconds)
+        self.timelineSlider.minimumValue = 0
+        
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         VideoPlayerViewController.playerViewController.player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { time in
             guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem else {return}
             
-            self.timelineSlider.maximumValue = Float(currentItem.duration.seconds)
-            self.timelineSlider.minimumValue = 0
+            
             self.timelineSlider.value = Float(currentItem.currentTime().seconds)
             self.currentTimeLabel.text = currentItem.currentTime().text
             self.durationLabel.text = currentItem.duration.text
