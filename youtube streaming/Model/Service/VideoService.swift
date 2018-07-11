@@ -14,7 +14,7 @@ class VideoService {
     
     typealias ResponsedVideo = ((_ videos: Result<[VideoEntity]> ) -> ())
     typealias ResponsedImage = ((_ image: Result<UIImage?> ) -> ())
-    typealias ResponsedString = ((_ stirng: String) -> ())
+    typealias ResponsedString = ((_ stirng: Result<String>) -> ())
     
     static func get(callback: @escaping ResponsedVideo) {
         let header = APIHeader.getAuthorizationVideo()
@@ -52,8 +52,9 @@ class VideoService {
                 let videoInfoQualityMedium = videoInfo["medium"] as? [String: Any]
               
                 if let qualityMediumURL = videoInfoQualityMedium?["url"] as? String {
-                    print(" video link : \(qualityMediumURL) \n")
-                    callback(qualityMediumURL)
+                    callback(Result.success(qualityMediumURL))
+                } else {
+                    callback(Result.failure("cannot get url"))
                 }
 
             })

@@ -9,17 +9,17 @@
 import UIKit
 import AudioIndicatorBars
 
+
 class VideoTableViewController: UIViewController {
     
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var videos = [VideoEntity]()
-    var videoPlayerViewController: VideoPlayerViewController?
     var firstTimePresentPlayer = true
     
     let indicator: AudioIndicatorBarsView = AudioIndicatorBarsView(CGRect(x: 0, y: 0, width: 30, height: 30),6,5,.orange)
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -39,33 +39,35 @@ class VideoTableViewController: UIViewController {
                 print(errorMessage)
             }
         }
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if firstTimePresentPlayer == false {
-            if videoPlayerViewController?.videoIsPlaying == false {
+            if PlayerMangaer.share?.videoIsPlaying == false {
                 indicator.stop()
+                navigationItem.rightBarButtonItem?.isEnabled = false
             }
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let videoPlayerVC = segue.destination as? VideoPlayerViewController, let cell = sender as? UITableViewCell{
             if let index = tableView.indexPath(for: cell){
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = false
-                self.videoPlayerViewController = videoPlayerVC
+                PlayerMangaer.share = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    self.videoPlayerViewController = videoPlayerVC
+                    PlayerMangaer.share = videoPlayerVC
                 }
                 indicator.start()
             }
         }
     }
     
-    func setUpUI(){
+    private func setUpUI(){
         let segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
         segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
         segmentControl?.addTarget(self, action: #selector(VideoTableViewController.changedControl), for: UIControlEvents.valueChanged)
@@ -80,7 +82,6 @@ class VideoTableViewController: UIViewController {
         segmentControl?.titleFormatter = { segmentedControl, title, index, selected in
             let attString = NSAttributedString(string: title ?? "", attributes: [kCTForegroundColorAttributeName as NSAttributedStringKey as NSAttributedStringKey: UIColor.white])
             return attString
-            
         }
         self.segmentView.addSubview(segmentControl!)
         
@@ -96,7 +97,7 @@ class VideoTableViewController: UIViewController {
     }
     
     @objc func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(videoPlayerViewController!, animated: true, completion: nil)
+        self.present(PlayerMangaer.share!, animated: true, completion: nil)
     }
 }
 
@@ -113,6 +114,7 @@ extension VideoTableViewController: UITableViewDelegate{
 }
 
 extension VideoTableViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

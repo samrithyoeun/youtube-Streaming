@@ -14,18 +14,27 @@ class OfflineVideoViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var videos = VideoEntity.getOfflineVideo()
-    var videoPlayerViewController: VideoPlayerViewController?
     var firstTimePresentPlayer = true
-    
     let indicator: AudioIndicatorBarsView = AudioIndicatorBarsView(CGRect(x: 0, y: 0, width: 30, height: 30),6,5,.orange)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if PlayerMangaer.share?.videoIsPlaying == true {
+            indicator.start()
+        } else {
+            indicator.stop()
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,15 +43,15 @@ class OfflineVideoViewController: UIViewController {
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = true
-                self.videoPlayerViewController = videoPlayerVC
+                PlayerMangaer.share = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    self.videoPlayerViewController = videoPlayerVC
+                    PlayerMangaer.share = videoPlayerVC
                 }
                 indicator.start()
             }
+        }
     }
-}
     
     private func setupUI(){
         let mview = UIView()
@@ -53,7 +62,7 @@ class OfflineVideoViewController: UIViewController {
     }
     
     @objc func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(videoPlayerViewController!, animated: true, completion: nil)
+        self.present(PlayerMangaer.share!, animated: true, completion: nil)
     }
 }
 
@@ -66,10 +75,10 @@ extension OfflineVideoViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
     }
-    
 }
 
 extension OfflineVideoViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -84,4 +93,5 @@ extension OfflineVideoViewController: UITableViewDataSource {
         cell.bindWith(video)
         return cell
     }
+    
 }

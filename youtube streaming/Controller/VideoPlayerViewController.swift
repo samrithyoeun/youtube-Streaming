@@ -19,19 +19,27 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var timelineSlider: UISlider!
     @IBOutlet weak var volumnSlider: UISlider!
+    @IBOutlet weak var shuffleButton: UIButton!
+    @IBOutlet weak var loopButton: UIButton!
+    
     var videos = [VideoEntity]()
     var player = AVPlayer()
     var videoIsPlaying = false
     var offlinePlaying = false
-    var indexOfPlayingVideo = 0
-    var playerItem: AVPlayerItem?
+    var shuffleState = false
+    var loopState = false
     static var firstTimeSetup =  true
-    var url: URL?
+    var indexOfPlayingVideo = 0
     private var playerItemContext = 0
+    var playerItem: AVPlayerItem?
+    var url: URL?
     static let playerViewController = AVPlayerViewController()
+    var originalVideos = [VideoEntity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        originalVideos = videos
+        
         if VideoPlayerViewController.firstTimeSetup == true {
             setUpUI()
             VideoPlayerViewController.firstTimeSetup = false
@@ -39,8 +47,16 @@ class VideoPlayerViewController: UIViewController {
         } else {
             playBackControll(indexOfPlayingVideo)
         }
-        
-        
+    }
+    
+    @IBAction func loopButtonDidTouched(_ sender: Any) {
+        if loopState == false {
+            loopState = true
+            loopButton.setImage(#imageLiteral(resourceName: "repeat"), for: .normal)
+        } else {
+            loopState = false
+            loopButton.setImage(#imageLiteral(resourceName: "reapeat-off"), for: .normal)
+        }
     }
     
     @IBAction func timelineSliderDidDragged(_ sender: UISlider) {
@@ -62,46 +78,70 @@ class VideoPlayerViewController: UIViewController {
             playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         }
         videoIsPlaying = !videoIsPlaying
-        
     }
     
     @IBAction func nextButtonTapeed(_ sender: Any) {
+        playBackControll(indexOfNextVideoToPlay())
+    }
+    
+    @IBAction func previousButtonTapped(_ sender: Any) {
+        playBackControll(IndexOfPreviousVideoToPlay())
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func shuffleButtonDidTouched(_ sender: Any) {
+        if shuffleState == false {
+            videos.shuffle()
+            shuffleState = true
+            shuffleButton.setImage(#imageLiteral(resourceName: "shuffle"), for: .normal)
+        } else {
+            shuffleButton.setImage(#imageLiteral(resourceName: "shuffle-off"), for: .normal)
+            shuffleState = false
+        }
+    }
+    
+    private func setUpUI(){
+        timelineSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
+        volumnSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
+        self.present(VideoPlayerViewController.playerViewController, animated: true, completion: nil)
+    }
+    
+}
+
+extension VideoPlayerViewController {
+    
+    //Mark: - AVPLayer methods
+    private func indexOfNextVideoToPlay() -> Int {
         if indexOfPlayingVideo == videos.count-1 {
             indexOfPlayingVideo = 0
         } else {
             indexOfPlayingVideo += 1
         }
-        playBackControll(indexOfPlayingVideo)
+        return indexOfPlayingVideo
     }
     
-    @IBAction func previousButtonTapped(_ sender: Any) {
+    private func IndexOfPreviousVideoToPlay() -> Int {
         if indexOfPlayingVideo == 0 {
             indexOfPlayingVideo = videos.count - 1
         } else {
             indexOfPlayingVideo -= 1
         }
-        playBackControll(indexOfPlayingVideo)
+        return indexOfPlayingVideo
     }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        performSegueToReturnBack()
-    }
-    
-    func setUpUI(){
-        timelineSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
-        volumnSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
-        self.present(VideoPlayerViewController.playerViewController, animated: true, completion: nil)
-        
-    }
-}
-
-extension VideoPlayerViewController {
     
     func playBackControll(_ index: Int){
         VideoPlayerViewController.playerViewController.player?.pause()
         videoIsPlaying = false
         playButton.setImage(#imageLiteral(resourceName: "playing"), for: .normal)
-        prepareToPlay(videos[index])
+        if shuffleState == true {
+            prepareToPlay(videos[index])
+        } else {
+            prepareToPlay(originalVideos[index])
+        }
+        
     }
     
     func prepareToPlay(_ video: VideoEntity){
@@ -126,15 +166,34 @@ extension VideoPlayerViewController {
             print("playing offline video")
             VideoPlayerViewController.playerViewController.player = AVPlayer(url: URL(fileURLWithPath: path))
             VideoPlayerViewController.playerViewController.player?.play()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: VideoPlayerViewController.playerViewController.player?.currentItem)
             setupTimeLine()
         } else {
-            VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (link) in
-                let streamURL = URL(string: link)
-                VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
-                VideoPlayerViewController.playerViewController.player?.play()
-                self.setupTimeLine()
+            VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (result) in
+                switch result {
+                case .success(let link):
+                    let streamURL = URL(string: link)
+                    VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
+                    VideoPlayerViewController.playerViewController.player?.play()
+                    NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+                    self.setupTimeLine()
+                case .failure(let error):
+                    print(error)
+                }
+                
             }
+            NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
             
+            
+        }
+    }
+    
+    @objc func finishVideo()
+    {
+        if loopState == true {
+            playBackControll(indexOfPlayingVideo)
+        } else {
+            playBackControll(indexOfNextVideoToPlay())
         }
     }
     
@@ -144,7 +203,7 @@ extension VideoPlayerViewController {
             else {
                 print("currentItem is nil in setupTimeLine")
                 return
-            }
+        }
         
         self.timelineSlider.maximumValue = Float(currentItem.asset.duration.seconds)
         self.timelineSlider.minimumValue = 0
@@ -153,10 +212,9 @@ extension VideoPlayerViewController {
         VideoPlayerViewController.playerViewController.player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { time in
             guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem else {return}
             
-            
             self.timelineSlider.value = Float(currentItem.currentTime().seconds)
             self.currentTimeLabel.text = currentItem.currentTime().text
-            self.durationLabel.text = currentItem.duration.text
+            self.durationLabel.text = currentItem.asset.duration.text
             
         })
     }

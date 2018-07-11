@@ -10,6 +10,7 @@ import Foundation
 import CoreMedia
 
 extension CMTime {
+    
     var text:String {
         let totalSeconds = CMTimeGetSeconds(self)
         let hours:Int = Int(totalSeconds / 3600)
@@ -22,4 +23,5 @@ extension CMTime {
             return String(format: "%02i:%02i", minutes, seconds)
         }
     }
+    
 }

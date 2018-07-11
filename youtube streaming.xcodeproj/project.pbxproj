@@ -21,17 +21,17 @@
 		535EF3E820EE23C6003588E6 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 535EF3E620EE23C5003588E6 /* HMSegmentedControl.m */; };
 		53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53775E1520F35F6A00CA9080 /* OfflineVideoViewController.swift */; };
 		53775E1820F365E000CA9080 /* OfflineVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */; };
-		537D24A320F352BF00009852 /* PhotoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537D24A220F352BE00009852 /* PhotoServices.swift */; };
 		C6FD2CFD4BAF1096B3A8ECBC /* Pods_youtube_streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82F0C26176F68D766AB532 /* Pods_youtube_streaming.framework */; };
 		CD2D744720F074770032B73C /* YoutubeSourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744020F074770032B73C /* YoutubeSourceParser.swift */; };
 		CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744920F0788A0032B73C /* VideoService.swift */; };
 		CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D744E20F222A10032B73C /* CMTimeEx.swift */; };
 		CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745120F281DF0032B73C /* APIHeader.swift */; };
 		CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2D745420F281DF0032B73C /* APIRequest.swift */; };
-		CD627F4F20F3AF34003D4C96 /* UIViewControllerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */; };
 		CD627F5020F426F6003D4C96 /* upbeat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249F20F3515700009852 /* upbeat.mp4 */; };
 		CD627F5120F426F6003D4C96 /* uplift.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249E20F3515600009852 /* uplift.mp4 */; };
 		CD627F5220F426F6003D4C96 /* happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D24A020F3515900009852 /* happy.mp4 */; };
+		CD7C212320F467C100DBF41B /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C212220F467C100DBF41B /* ArrayEx.swift */; };
+		CDAFAF7320F4EA40001D9CAB /* VideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,14 +60,14 @@
 		537D249E20F3515600009852 /* uplift.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = uplift.mp4; sourceTree = "<group>"; };
 		537D249F20F3515700009852 /* upbeat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = upbeat.mp4; sourceTree = "<group>"; };
 		537D24A020F3515900009852 /* happy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = happy.mp4; sourceTree = "<group>"; };
-		537D24A220F352BE00009852 /* PhotoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoServices.swift; sourceTree = "<group>"; };
 		81BC8B35C4182B578A000BC0 /* Pods-youtube streaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-youtube streaming.debug.xcconfig"; path = "Pods/Target Support Files/Pods-youtube streaming/Pods-youtube streaming.debug.xcconfig"; sourceTree = "<group>"; };
 		CD2D744020F074770032B73C /* YoutubeSourceParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSourceParser.swift; sourceTree = "<group>"; };
 		CD2D744920F0788A0032B73C /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
 		CD2D744E20F222A10032B73C /* CMTimeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTimeEx.swift; sourceTree = "<group>"; };
 		CD2D745120F281DF0032B73C /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		CD2D745420F281DF0032B73C /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerEx.swift; sourceTree = "<group>"; };
+		CD7C212220F467C100DBF41B /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
+		CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				CD2D744E20F222A10032B73C /* CMTimeEx.swift */,
-				CD627F4E20F3AF34003D4C96 /* UIViewControllerEx.swift */,
+				CD7C212220F467C100DBF41B /* ArrayEx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -94,7 +94,6 @@
 		5355757220EF4D41005C62E7 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
-				537D24A420F352C200009852 /* PhotoServices */,
 				CD2D743620F0746A0032B73C /* YoutubeSourceParser */,
 				5355757320EF50BC005C62E7 /* HMSegmentHeader */,
 			);
@@ -160,9 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				535EF3B620EDC077003588E6 /* Main.storyboard */,
-				535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */,
-				535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */,
-				53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */,
+				CDAFAF7820F509A1001D9CAB /* Custom */,
+				CDAFAF7620F503C4001D9CAB /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +178,7 @@
 		535EF3C920EDC140003588E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CDAFAF7720F50990001D9CAB /* Manager */,
 				CD2D745020F281DF0032B73C /* API */,
 				535EF3CE20EDC769003588E6 /* Entity */,
 				CD2D744B20F07E100032B73C /* Service */,
@@ -213,14 +212,6 @@
 				537D24A020F3515900009852 /* happy.mp4 */,
 			);
 			path = Videos;
-			sourceTree = "<group>";
-		};
-		537D24A420F352C200009852 /* PhotoServices */ = {
-			isa = PBXGroup;
-			children = (
-				537D24A220F352BE00009852 /* PhotoServices.swift */,
-			);
-			path = PhotoServices;
 			sourceTree = "<group>";
 		};
 		591A29C4F7E110D3E896E188 /* Frameworks */ = {
@@ -263,6 +254,31 @@
 				CD2D745420F281DF0032B73C /* APIRequest.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		CDAFAF7620F503C4001D9CAB /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				535EF3E120EE086B003588E6 /* VideoTableViewCell.swift */,
+				53775E1720F365E000CA9080 /* OfflineVideoTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		CDAFAF7720F50990001D9CAB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CDAFAF7820F509A1001D9CAB /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				535EF3DC20EDD8FC003588E6 /* CustomTabBar.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,12 +401,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAFAF7320F4EA40001D9CAB /* VideoPlayerManager.swift in Sources */,
 				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
 				53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */,
 				CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */,
-				CD627F4F20F3AF34003D4C96 /* UIViewControllerEx.swift in Sources */,
+				CD7C212320F467C100DBF41B /* ArrayEx.swift in Sources */,
 				535EF3E220EE086B003588E6 /* VideoTableViewCell.swift in Sources */,
-				537D24A320F352BF00009852 /* PhotoServices.swift in Sources */,
 				535EF3B120EDC077003588E6 /* AppDelegate.swift in Sources */,
 				53775E1820F365E000CA9080 /* OfflineVideoTableViewCell.swift in Sources */,
 				535EF3E420EE1275003588E6 /* VideoEntity.swift in Sources */,
