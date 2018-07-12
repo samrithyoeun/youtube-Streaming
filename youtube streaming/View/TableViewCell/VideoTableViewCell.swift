@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class VideoTableViewCell: UITableViewCell {
   
@@ -17,17 +18,8 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func bindData(with video: VideoEntity){
-        
-        Alamofire.request(video.thumbnail)
-            .validate()
-            .responseData { (response) in
-                if response.error == nil {
-                    if let data = response.data{
-                        let image = UIImage(data:data)
-                        self.videoImageView.image = image!
-                    }
-                }
-        }
+        let url = URL(string: video.thumbnail)
+        videoImageView.kf.setImage(with: url)
         channelLabel.text = video.channel
         titleLabel.text = video.title
     }

@@ -11,5 +11,8 @@ import AVFoundation
 import AVKit
 
 class PlayerMangaer  {
-    static var share: VideoPlayerViewController?
+    
+    static let shared = PlayerMangaer()
+    var controller: VideoPlayerViewController?
+
 }

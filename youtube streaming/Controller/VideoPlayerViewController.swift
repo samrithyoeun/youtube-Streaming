@@ -23,18 +23,19 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var loopButton: UIButton!
     
     var videos = [VideoEntity]()
+    var originalVideos = [VideoEntity]()
     var player = AVPlayer()
     var videoIsPlaying = false
     var offlinePlaying = false
     var shuffleState = false
     var loopState = false
-    static var firstTimeSetup =  true
     var indexOfPlayingVideo = 0
-    private var playerItemContext = 0
+    var playerItemContext = 0
     var playerItem: AVPlayerItem?
     var url: URL?
+    
     static let playerViewController = AVPlayerViewController()
-    var originalVideos = [VideoEntity]()
+    static var firstTimeSetup =  true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class VideoPlayerViewController: UIViewController {
         
         if VideoPlayerViewController.firstTimeSetup == true {
             setUpUI()
+            self.setupNotification()
             VideoPlayerViewController.firstTimeSetup = false
             playBackControll(indexOfPlayingVideo)
         } else {
@@ -145,7 +147,6 @@ extension VideoPlayerViewController {
     }
     
     func prepareToPlay(_ video: VideoEntity){
-        
         titleLabel.text = video.title
         channelLabel.text = video.channel
         currentTimeLabel.text = "NaN"
@@ -166,10 +167,7 @@ extension VideoPlayerViewController {
             print("playing offline video")
             VideoPlayerViewController.playerViewController.player = AVPlayer(url: URL(fileURLWithPath: path))
             VideoPlayerViewController.playerViewController.player?.play()
-            if VideoPlayerViewController.firstTimeSetup == true {
-                setupTimeLine()
-                setupNotification()
-            }
+            self.setupTimeLine()
             
         } else {
             VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (result) in
@@ -178,16 +176,11 @@ extension VideoPlayerViewController {
                     let streamURL = URL(string: link)
                     VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
                     VideoPlayerViewController.playerViewController.player?.play()
-                    if VideoPlayerViewController.firstTimeSetup == true {
-                        self.setupTimeLine()
-                        self.setupNotification()
-                    }
+                    self.setupTimeLine()
                 case .failure(let error):
                     print(error)
                 }
-                
             }
-            
         }
     }
     

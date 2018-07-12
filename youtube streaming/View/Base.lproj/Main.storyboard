@@ -219,7 +219,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V13-ig-6bd">
                                         <rect key="frame" x="104" y="13" width="112" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97M-kF-azm">
@@ -541,7 +541,7 @@
             </objects>
             <point key="canvasLocation" x="-251" y="-69"/>
         </scene>
-        <!--Offline Video-->
+        <!--LOCAL FILE-->
         <scene sceneID="tly-P0-fPt">
             <objects>
                 <viewController id="B9O-RD-glF" customClass="OfflineVideoViewController" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
@@ -553,7 +553,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="offline cell" rowHeight="86" id="VbT-fc-c4w" customClass="OfflineVideoTableViewCell" customModule="youtube_streaming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="offline cell" rowHeight="86" id="VbT-fc-c4w" customClass="OfflineVideoTableViewCell" customModule="youtube_streaming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VbT-fc-c4w" id="BwX-hE-dip">
@@ -601,7 +601,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YUW-2J-MqF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Offline Video" id="HWe-c4-9ul"/>
+                    <navigationItem key="navigationItem" title="LOCAL FILE" id="HWe-c4-9ul"/>
                     <connections>
                         <outlet property="tableView" destination="Buq-RV-Y1x" id="pV6-YK-tpb"/>
                     </connections>
@@ -618,15 +618,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keO-tM-jfB">
-                                <rect key="frame" x="192" y="255" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming" translatesAutoresizingMaskIntoConstraints="NO" id="Cpm-lJ-SeW">
+                                <rect key="frame" x="10" y="109.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="XuJ-2j-HN1"/>
+                                    <constraint firstAttribute="width" constant="300" id="sQn-Si-cv9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Cpm-lJ-SeW" firstAttribute="centerY" secondItem="tuv-r6-SrO" secondAttribute="centerY" id="LjS-t4-aTd"/>
+                            <constraint firstItem="Cpm-lJ-SeW" firstAttribute="centerX" secondItem="tuv-r6-SrO" secondAttribute="centerX" id="dAu-l5-bJ5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zDg-hn-tRn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="playlist" id="rZT-KR-Ncx">
@@ -644,7 +648,20 @@
                     <view key="view" contentMode="scaleToFill" id="0fg-nL-l8L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming" translatesAutoresizingMaskIntoConstraints="NO" id="xUi-4K-d95">
+                                <rect key="frame" x="10" y="109.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="QzR-EA-K0P"/>
+                                    <constraint firstAttribute="width" constant="300" id="VJi-E0-nLb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xUi-4K-d95" firstAttribute="centerX" secondItem="0fg-nL-l8L" secondAttribute="centerX" id="g5Q-WY-Flz"/>
+                            <constraint firstItem="xUi-4K-d95" firstAttribute="centerY" secondItem="0fg-nL-l8L" secondAttribute="centerY" id="iqZ-3q-aJ4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dPM-Km-2dV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" selectedImage="search" id="fDE-b1-iIU">
@@ -669,6 +686,9 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="0.48627450979999998" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -704,6 +724,7 @@
     </scenes>
     <resources>
         <image name="back" width="24" height="24"/>
+        <image name="coming" width="225" height="225"/>
         <image name="home" width="26" height="26"/>
         <image name="loud" width="32" height="32"/>
         <image name="menu" width="24" height="24"/>

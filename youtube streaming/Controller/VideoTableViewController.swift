@@ -43,9 +43,8 @@ class VideoTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if firstTimePresentPlayer == false {
-            if PlayerMangaer.share?.videoIsPlaying == false {
+            if PlayerMangaer.shared.controller?.videoIsPlaying == false {
                 indicator.stop()
-                navigationItem.rightBarButtonItem?.isEnabled = false
             }
         }
     }
@@ -56,10 +55,10 @@ class VideoTableViewController: UIViewController {
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = false
-                PlayerMangaer.share = videoPlayerVC
+                PlayerMangaer.shared.controller = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    PlayerMangaer.share = videoPlayerVC
+                    PlayerMangaer.shared.controller = videoPlayerVC
                 }
                 indicator.start()
             }
@@ -91,7 +90,7 @@ class VideoTableViewController: UIViewController {
     }
   
     @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(PlayerMangaer.share!, animated: true, completion: nil)
+        self.present(PlayerMangaer.shared.controller!, animated: true, completion: nil)
     }
     
 }

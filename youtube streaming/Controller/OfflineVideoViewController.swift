@@ -35,7 +35,7 @@ class OfflineVideoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if PlayerMangaer.share?.videoIsPlaying == true {
+        if PlayerMangaer.shared.controller?.videoIsPlaying == true {
             indicator.start()
         } else {
             indicator.stop()
@@ -49,17 +49,17 @@ class OfflineVideoViewController: UIViewController {
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = true
-                PlayerMangaer.share = videoPlayerVC
+                PlayerMangaer.shared.controller = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    PlayerMangaer.share = videoPlayerVC
+                    PlayerMangaer.shared.controller = videoPlayerVC
                 }
                 indicator.start()
             }
         }
     }
     
-    private func setupUI(){
+    private func setupUI() {
         let mview = UIView()
         mview.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         mview.addSubview(indicator)
@@ -68,7 +68,7 @@ class OfflineVideoViewController: UIViewController {
     }
     
     @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(PlayerMangaer.share!, animated: true, completion: nil)
+        self.present(PlayerMangaer.shared.controller!, animated: true, completion: nil)
     }
 }
 
