@@ -13,9 +13,15 @@ class OfflineVideoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var videos = VideoEntity.getOfflineVideo()
-    var firstTimePresentPlayer = true
     let indicator: AudioIndicatorBarsView = AudioIndicatorBarsView(CGRect(x: 0, y: 0, width: 30, height: 30),6,5,.orange)
+    var firstTimePresentPlayer = true
+    var videos: [VideoEntity] = {
+            var videos = [VideoEntity]()
+            videos.append(VideoEntity(title: "Upbeat music", channel: "localfile", id: "", thumbnail: "upbeat", videoLink: "upbeat"))
+            videos.append(VideoEntity(title: "UpLift music", channel: "localfile", id: "", thumbnail: "uplifted", videoLink: "uplift"))
+            videos.append(VideoEntity(title: "Hppy Upbeat music", channel: "localfile", id: "", thumbnail: "happy", videoLink: "happy"))
+            return videos
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +67,7 @@ class OfflineVideoViewController: UIViewController {
         navigationItem.rightBarButtonItem?.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(popBackToPlayer(_:))))
     }
     
-    @objc func popBackToPlayer(_ button:UIBarButtonItem) {
+    @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
         self.present(PlayerMangaer.share!, animated: true, completion: nil)
     }
 }

@@ -36,7 +36,7 @@ class VideoService {
         if let items = value["items"].array {
             for item in items {
                 if let title = item["snippet"]["title"].string , let channel = item["snippet"]["channelTitle"].string , let videoId = item["id"]["videoId"].string , let thumbnail = item["snippet"]["thumbnails"]["medium"]["url"].string {
-                    videos.append(VideoEntity(title: title, channel: channel, id: videoId, thumbnail: thumbnail))
+                    videos.append(VideoEntity(title: title, channel: channel, id: videoId, thumbnail: thumbnail, videoLink: ""))
                     
                 }
             }

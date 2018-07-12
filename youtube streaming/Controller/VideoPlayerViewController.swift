@@ -166,8 +166,11 @@ extension VideoPlayerViewController {
             print("playing offline video")
             VideoPlayerViewController.playerViewController.player = AVPlayer(url: URL(fileURLWithPath: path))
             VideoPlayerViewController.playerViewController.player?.play()
-            NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: VideoPlayerViewController.playerViewController.player?.currentItem)
-            setupTimeLine()
+            if VideoPlayerViewController.firstTimeSetup == true {
+                setupTimeLine()
+                setupNotification()
+            }
+            
         } else {
             VideoService.getSourceURL(id: videos[indexOfPlayingVideo].id) { (result) in
                 switch result {
@@ -175,20 +178,20 @@ extension VideoPlayerViewController {
                     let streamURL = URL(string: link)
                     VideoPlayerViewController.playerViewController.player = AVPlayer(url: streamURL!)
                     VideoPlayerViewController.playerViewController.player?.play()
-                    NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-                    self.setupTimeLine()
+                    if VideoPlayerViewController.firstTimeSetup == true {
+                        self.setupTimeLine()
+                        self.setupNotification()
+                    }
                 case .failure(let error):
                     print(error)
                 }
                 
             }
-            NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-            
             
         }
     }
     
-    @objc func finishVideo()
+    @objc private func finishVideo()
     {
         if loopState == true {
             playBackControll(indexOfPlayingVideo)
@@ -197,7 +200,7 @@ extension VideoPlayerViewController {
         }
     }
     
-    func setupTimeLine() {
+    private func setupTimeLine() {
         print("debug: set up timeline")
         guard let currentItem = VideoPlayerViewController.playerViewController.player?.currentItem
             else {
@@ -218,4 +221,9 @@ extension VideoPlayerViewController {
             
         })
     }
+    
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.finishVideo), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: VideoPlayerViewController.playerViewController.player?.currentItem)
+    }
+    
 }

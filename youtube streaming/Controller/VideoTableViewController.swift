@@ -9,7 +9,6 @@
 import UIKit
 import AudioIndicatorBars
 
-
 class VideoTableViewController: UIViewController {
     
     @IBOutlet weak var segmentView: UIView!
@@ -67,10 +66,9 @@ class VideoTableViewController: UIViewController {
         }
     }
     
-    private func setUpUI(){
+    private func setUpUI() {
         let segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
         segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
-        segmentControl?.addTarget(self, action: #selector(VideoTableViewController.changedControl), for: UIControlEvents.valueChanged)
         segmentControl?.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segmentControl?.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segmentControl?.backgroundColor = UIColor.black
@@ -91,14 +89,11 @@ class VideoTableViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: mview)
         navigationItem.rightBarButtonItem?.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(popBackToPlayer(_:))))
     }
-    
-    @objc func changedControl(){
-        
-    }
-    
-    @objc func popBackToPlayer(_ button:UIBarButtonItem) {
+  
+    @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
         self.present(PlayerMangaer.share!, animated: true, completion: nil)
     }
+    
 }
 
 extension VideoTableViewController: UITableViewDelegate{
