@@ -7,4 +7,5 @@ use_frameworks!
 	pod 'Alamofire', '4.7.2'
 	pod 'AudioIndicatorBars', '0.0.2'
     pod 'Kingfisher', '4.8.0'
+    pod 'Localize-Swift', '2.0.0'
 end

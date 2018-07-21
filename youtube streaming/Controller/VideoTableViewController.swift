@@ -8,12 +8,14 @@
 
 import UIKit
 import AudioIndicatorBars
+import Localize_Swift
 
 class VideoTableViewController: UIViewController {
     
     @IBOutlet weak var segmentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var segmentControl: HMSegmentedControl?
     var videos = [VideoEntity]()
     var firstTimePresentPlayer = true
     
@@ -22,10 +24,9 @@ class VideoTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
+        ControllerManager.shared.videoTable = self
         VideoService.get { (result) in
             switch result {
             case .success(let videoEntities):
@@ -43,10 +44,12 @@ class VideoTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if firstTimePresentPlayer == false {
-            if PlayerMangaer.shared.controller?.videoIsPlaying == false {
+            if ControllerManager.shared.videoPlayer?.videoIsPlaying == false {
                 indicator.stop()
             }
         }
+        print("view will appear")
+        refreshUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,18 +58,25 @@ class VideoTableViewController: UIViewController {
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = false
-                PlayerMangaer.shared.controller = videoPlayerVC
+                ControllerManager.shared.videoPlayer = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    PlayerMangaer.shared.controller = videoPlayerVC
+                    ControllerManager.shared.videoPlayer = videoPlayerVC
                 }
                 indicator.start()
             }
         }
     }
     
+    public func refreshUI(){
+        print("refresh ui in VideoTable")
+        print("video".localized())
+        self.navigationItem.title = "video".localized()
+        segmentControl?.sectionTitles = ["new-hit".localized(),"hottest".localized(), "just-in".localized()]
+    }
+    
     private func setUpUI() {
-        let segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
+        segmentControl = HMSegmentedControl(sectionTitles: ["NEW-HITS" ,"HOTTEST", "JUST-IN"])
         segmentControl?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 55)
         segmentControl?.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segmentControl?.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
@@ -90,13 +100,12 @@ class VideoTableViewController: UIViewController {
     }
   
     @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(PlayerMangaer.shared.controller!, animated: true, completion: nil)
+        self.present(ControllerManager.shared.videoPlayer!, animated: true, completion: nil)
     }
     
 }
 
 extension VideoTableViewController: UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
     }
@@ -108,7 +117,6 @@ extension VideoTableViewController: UITableViewDelegate{
 }
 
 extension VideoTableViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

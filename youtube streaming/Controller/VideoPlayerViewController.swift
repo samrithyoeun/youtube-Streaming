@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Localize_Swift
 
 class VideoPlayerViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var volumnSlider: UISlider!
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var loopButton: UIButton!
+    @IBOutlet weak var nowPlayingLabel: UILabel!
     
     var videos = [VideoEntity]()
     var originalVideos = [VideoEntity]()
@@ -39,6 +41,7 @@ class VideoPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         originalVideos = videos
         
         if VideoPlayerViewController.firstTimeSetup == true {
@@ -49,6 +52,11 @@ class VideoPlayerViewController: UIViewController {
         } else {
             playBackControll(indexOfPlayingVideo)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshUI()
     }
     
     @IBAction func loopButtonDidTouched(_ sender: Any) {
@@ -105,16 +113,21 @@ class VideoPlayerViewController: UIViewController {
         }
     }
     
+    public func refreshUI(){
+        print("refresh ui in VideoPlayer")
+        print("now-playing".localized())
+        nowPlayingLabel.text = "now-playing".localized()
+    }
+    
     private func setUpUI(){
         timelineSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
         volumnSlider.setThumbImage(#imageLiteral(resourceName: "circle"), for: .normal)
         self.present(VideoPlayerViewController.playerViewController, animated: true, completion: nil)
     }
-    
+
 }
 
 extension VideoPlayerViewController {
-    
     //Mark: - AVPLayer methods
     private func indexOfNextVideoToPlay() -> Int {
         if indexOfPlayingVideo == videos.count-1 {

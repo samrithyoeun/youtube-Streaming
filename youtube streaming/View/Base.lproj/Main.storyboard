@@ -503,6 +503,7 @@
                         <outlet property="currentTimeLabel" destination="vGz-fi-pZi" id="ew9-SG-zVe"/>
                         <outlet property="durationLabel" destination="L6E-wO-ev4" id="Ajm-sN-zwX"/>
                         <outlet property="loopButton" destination="wNm-nb-Gw3" id="uP9-vJ-I0A"/>
+                        <outlet property="nowPlayingLabel" destination="V13-ig-6bd" id="Ec6-fu-7Bo"/>
                         <outlet property="playButton" destination="khH-P0-Gy2" id="7uG-qO-AjL"/>
                         <outlet property="shuffleButton" destination="zzC-Ys-rdO" id="E5m-Yl-aE3"/>
                         <outlet property="timelineSlider" destination="d3e-DZ-38g" id="Avi-z9-zlf"/>
@@ -532,9 +533,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="ZGY-dU-9oh" kind="relationship" relationship="viewControllers" id="Lc9-fi-snx"/>
-                        <segue destination="tUz-oo-nkZ" kind="relationship" relationship="viewControllers" id="tOd-w0-cZV"/>
                         <segue destination="9k6-Sz-a17" kind="relationship" relationship="viewControllers" id="frc-Mo-H0F"/>
-                        <segue destination="5mg-dV-Us5" kind="relationship" relationship="viewControllers" id="fB2-7W-UK0"/>
+                        <segue destination="tUz-oo-nkZ" kind="relationship" relationship="viewControllers" id="tOd-w0-cZV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -610,63 +610,40 @@
             </objects>
             <point key="canvasLocation" x="-196.875" y="716.19718309859161"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="2Iz-g8-Czl">
-            <objects>
-                <viewController id="5mg-dV-Us5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tuv-r6-SrO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming" translatesAutoresizingMaskIntoConstraints="NO" id="Cpm-lJ-SeW">
-                                <rect key="frame" x="10" y="109.5" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="XuJ-2j-HN1"/>
-                                    <constraint firstAttribute="width" constant="300" id="sQn-Si-cv9"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="Cpm-lJ-SeW" firstAttribute="centerY" secondItem="tuv-r6-SrO" secondAttribute="centerY" id="LjS-t4-aTd"/>
-                            <constraint firstItem="Cpm-lJ-SeW" firstAttribute="centerX" secondItem="tuv-r6-SrO" secondAttribute="centerX" id="dAu-l5-bJ5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="zDg-hn-tRn"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="playlist" id="rZT-KR-Ncx">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="koQ-jF-udF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="481.875" y="717.25352112676057"/>
-        </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="EfW-gb-IeM">
             <objects>
-                <viewController id="tUz-oo-nkZ" sceneMemberID="viewController">
+                <viewController id="tUz-oo-nkZ" customClass="SettingViewController" customModule="youtube_streaming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0fg-nL-l8L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coming" translatesAutoresizingMaskIntoConstraints="NO" id="xUi-4K-d95">
-                                <rect key="frame" x="10" y="109.5" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="QzR-EA-K0P"/>
-                                    <constraint firstAttribute="width" constant="300" id="VJi-E0-nLb"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQF-Sj-Kh9">
+                                <rect key="frame" x="30" y="170" width="260" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Change Language">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="languageButtonTapped:" destination="tUz-oo-nkZ" eventType="touchUpInside" id="X0z-Ue-8gp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xUi-4K-d95" firstAttribute="centerX" secondItem="0fg-nL-l8L" secondAttribute="centerX" id="g5Q-WY-Flz"/>
-                            <constraint firstItem="xUi-4K-d95" firstAttribute="centerY" secondItem="0fg-nL-l8L" secondAttribute="centerY" id="iqZ-3q-aJ4"/>
+                            <constraint firstItem="dPM-Km-2dV" firstAttribute="trailing" secondItem="oQF-Sj-Kh9" secondAttribute="trailing" constant="30" id="cpt-Ic-IWS"/>
+                            <constraint firstItem="oQF-Sj-Kh9" firstAttribute="leading" secondItem="dPM-Km-2dV" secondAttribute="leading" constant="30" id="f6Z-yK-8a3"/>
+                            <constraint firstItem="oQF-Sj-Kh9" firstAttribute="top" secondItem="dPM-Km-2dV" secondAttribute="top" constant="150" id="gdw-4h-Jdw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPM-Km-2dV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="search" id="fDE-b1-iIU">
+                    <tabBarItem key="tabBarItem" title="" image="setting" id="fDE-b1-iIU">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="languageButton" destination="oQF-Sj-Kh9" id="6Yj-7H-BOT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVR-8Y-9ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -724,7 +701,6 @@
     </scenes>
     <resources>
         <image name="back" width="24" height="24"/>
-        <image name="coming" width="225" height="225"/>
         <image name="home" width="26" height="26"/>
         <image name="loud" width="32" height="32"/>
         <image name="menu" width="24" height="24"/>
@@ -732,13 +708,12 @@
         <image name="next" width="32" height="32"/>
         <image name="play" width="20" height="20"/>
         <image name="playing" width="64" height="64"/>
-        <image name="playlist" width="26" height="26"/>
         <image name="previous" width="32" height="32"/>
         <image name="reapeat-off" width="32" height="32"/>
-        <image name="search" width="26" height="26"/>
+        <image name="setting" width="24" height="24"/>
         <image name="shuffle-off" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Qa-cD-cIw"/>
+        <segue reference="oyx-j3-dQn"/>
     </inferredMetricsTieBreakers>
 </document>

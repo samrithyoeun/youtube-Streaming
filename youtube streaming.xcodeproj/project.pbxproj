@@ -30,8 +30,10 @@
 		CD627F5020F426F6003D4C96 /* upbeat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249F20F3515700009852 /* upbeat.mp4 */; };
 		CD627F5120F426F6003D4C96 /* uplift.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D249E20F3515600009852 /* uplift.mp4 */; };
 		CD627F5220F426F6003D4C96 /* happy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 537D24A020F3515900009852 /* happy.mp4 */; };
+		CD795152210317E800579B92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD795151210317E800579B92 /* SettingViewController.swift */; };
+		CD7951572103192B00579B92 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD7951592103192B00579B92 /* Localizable.strings */; };
 		CD7C212320F467C100DBF41B /* ArrayEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7C212220F467C100DBF41B /* ArrayEx.swift */; };
-		CDAFAF7320F4EA40001D9CAB /* VideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */; };
+		CDAFAF7320F4EA40001D9CAB /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFAF7220F4EA40001D9CAB /* ControllerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,8 +68,13 @@
 		CD2D744E20F222A10032B73C /* CMTimeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTimeEx.swift; sourceTree = "<group>"; };
 		CD2D745120F281DF0032B73C /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHeader.swift; sourceTree = "<group>"; };
 		CD2D745420F281DF0032B73C /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		CD795151210317E800579B92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CD7951532103191600579B92 /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/Main.strings; sourceTree = "<group>"; };
+		CD7951542103191600579B92 /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CD7951582103192B00579B92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CD79515A2103192D00579B92 /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CD7C212220F467C100DBF41B /* ArrayEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayEx.swift; sourceTree = "<group>"; };
-		CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerManager.swift; sourceTree = "<group>"; };
+		CDAFAF7220F4EA40001D9CAB /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +154,7 @@
 				537D24A120F3515E00009852 /* Videos */,
 				535EF3E520EE23C4003588E6 /* youtube streaming-Bridging-Header.h */,
 				535EF3D620EDCC8E003588E6 /* DevConfig.xcconfig */,
+				CD7951592103192B00579B92 /* Localizable.strings */,
 				535EF3D720EDCC8F003588E6 /* ProdConfig.xcconfig */,
 				535EF3B920EDC078003588E6 /* Assets.xcassets */,
 				535EF3BB20EDC078003588E6 /* LaunchScreen.storyboard */,
@@ -171,6 +179,7 @@
 				535EF3B220EDC077003588E6 /* VideoPlayerViewController.swift */,
 				53775E1520F35F6A00CA9080 /* OfflineVideoViewController.swift */,
 				535EF3DE20EDF76B003588E6 /* VideoTableViewController.swift */,
+				CD795151210317E800579B92 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,7 +277,7 @@
 		CDAFAF7720F50990001D9CAB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				CDAFAF7220F4EA40001D9CAB /* VideoPlayerManager.swift */,
+				CDAFAF7220F4EA40001D9CAB /* ControllerManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 			knownRegions = (
 				en,
 				Base,
+				km,
 			);
 			mainGroup = 535EF3A420EDC076003588E6;
 			productRefGroup = 535EF3AE20EDC077003588E6 /* Products */;
@@ -345,6 +355,7 @@
 				CD627F5020F426F6003D4C96 /* upbeat.mp4 in Resources */,
 				CD627F5120F426F6003D4C96 /* uplift.mp4 in Resources */,
 				CD627F5220F426F6003D4C96 /* happy.mp4 in Resources */,
+				CD7951572103192B00579B92 /* Localizable.strings in Resources */,
 				535EF3BD20EDC078003588E6 /* LaunchScreen.storyboard in Resources */,
 				535EF3BA20EDC078003588E6 /* Assets.xcassets in Resources */,
 				535EF3B820EDC077003588E6 /* Main.storyboard in Resources */,
@@ -364,6 +375,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AudioIndicatorBars/AudioIndicatorBars.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -371,6 +383,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioIndicatorBars.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDAFAF7320F4EA40001D9CAB /* VideoPlayerManager.swift in Sources */,
+				CDAFAF7320F4EA40001D9CAB /* ControllerManager.swift in Sources */,
 				CD2D744A20F0788A0032B73C /* VideoService.swift in Sources */,
 				53775E1620F35F6A00CA9080 /* OfflineVideoViewController.swift in Sources */,
 				CD2D744F20F222A10032B73C /* CMTimeEx.swift in Sources */,
@@ -419,6 +432,7 @@
 				535EF3B320EDC077003588E6 /* VideoPlayerViewController.swift in Sources */,
 				535EF3DF20EDF76B003588E6 /* VideoTableViewController.swift in Sources */,
 				CD2D745520F281DF0032B73C /* APIHeader.swift in Sources */,
+				CD795152210317E800579B92 /* SettingViewController.swift in Sources */,
 				CD2D745720F281DF0032B73C /* APIRequest.swift in Sources */,
 				535EF3D520EDCC70003588E6 /* ServerEnvironment.swift in Sources */,
 			);
@@ -431,6 +445,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				535EF3B720EDC077003588E6 /* Base */,
+				CD7951532103191600579B92 /* km */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -439,8 +454,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				535EF3BC20EDC078003588E6 /* Base */,
+				CD7951542103191600579B92 /* km */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CD7951592103192B00579B92 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD7951582103192B00579B92 /* en */,
+				CD79515A2103192D00579B92 /* km */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -450,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -510,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -25,7 +25,7 @@ class OfflineVideoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ControllerManager.shared.offlineVideo = self
         setupUI()
         
         tableView.delegate = self
@@ -35,12 +35,12 @@ class OfflineVideoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if PlayerMangaer.shared.controller?.videoIsPlaying == true {
+        if ControllerManager.shared.videoPlayer?.videoIsPlaying == true {
             indicator.start()
         } else {
             indicator.stop()
-            navigationItem.rightBarButtonItem?.isEnabled = false
         }
+        refreshUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,14 +49,20 @@ class OfflineVideoViewController: UIViewController {
                 videoPlayerVC.videos = videos
                 videoPlayerVC.indexOfPlayingVideo = index.row
                 videoPlayerVC.offlinePlaying = true
-                PlayerMangaer.shared.controller = videoPlayerVC
+                ControllerManager.shared.videoPlayer = videoPlayerVC
                 if firstTimePresentPlayer == true {
                     firstTimePresentPlayer = false
-                    PlayerMangaer.shared.controller = videoPlayerVC
+                    ControllerManager.shared.videoPlayer = videoPlayerVC
                 }
                 indicator.start()
             }
         }
+    }
+    
+    public func refreshUI(){
+        print("refresh ui in OfflineView")
+        print("offline".localized())
+        self.navigationItem.title = "offline".localized()
     }
     
     private func setupUI() {
@@ -68,12 +74,11 @@ class OfflineVideoViewController: UIViewController {
     }
     
     @objc private func popBackToPlayer(_ button:UIBarButtonItem) {
-        self.present(PlayerMangaer.shared.controller!, animated: true, completion: nil)
+        self.present(ControllerManager.shared.videoPlayer!, animated: true, completion: nil)
     }
 }
 
 extension OfflineVideoViewController: UITableViewDelegate{
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
     }
@@ -84,7 +89,6 @@ extension OfflineVideoViewController: UITableViewDelegate{
 }
 
 extension OfflineVideoViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

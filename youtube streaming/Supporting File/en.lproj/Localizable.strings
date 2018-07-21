@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  youtube streaming
+
+  Created by Samrith Yoeun on 7/21/18.
+  Copyright © 2018 PM Academy 3. All rights reserved.
+*/
+
+"offline" =  "OFFLINE VIDEOS";
+"new-hit" = "NEW-HIT";
+"hottest" = "HOTTEST";
+"just-in" = "JUST-IN";
+"now-playing" = "NOW PLAYING";
+"choose your language" = "Choose your language";
+"video" = "VIDEO";
